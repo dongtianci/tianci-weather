@@ -256,6 +256,106 @@
     .advice-text { font-size: 0.88em; color: #cbd5e0; line-height: 1.5; }
     .advice-text strong { color: #fff; display: block; margin-bottom: 2px; }
 
+    /* 每日资讯 */
+    .news-section {
+      max-width: 1100px;
+      margin: 24px auto 0;
+    }
+
+    .news-section-title {
+      text-align: center;
+      font-size: 1em;
+      color: #a0aec0;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .news-section-title::before,
+    .news-section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.1);
+      max-width: 200px;
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .news-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 24px 22px;
+      backdrop-filter: blur(10px);
+    }
+
+    .news-card-header {
+      font-size: 0.85em;
+      color: #a0aec0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+    }
+
+    .news-items {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .news-item {
+      border-left: 2px solid rgba(116,185,255,0.4);
+      padding-left: 12px;
+    }
+
+    .news-item-title {
+      font-size: 0.88em;
+      font-weight: 600;
+      color: #e2e8f0;
+      line-height: 1.4;
+      margin-bottom: 4px;
+    }
+
+    .news-item-desc {
+      font-size: 0.78em;
+      color: #718096;
+      line-height: 1.5;
+    }
+
+    .news-date {
+      text-align: center;
+      color: #4a5568;
+      font-size: 0.75em;
+      margin-top: 14px;
+    }
+
+    .news-loading {
+      text-align: center;
+      padding: 30px;
+      color: #718096;
+      font-size: 0.9em;
+    }
+
+    .news-error {
+      text-align: center;
+      padding: 20px;
+      color: #e17055;
+      font-size: 0.85em;
+    }
+
     .refresh-btn {
       display: block;
       margin: 24px auto 10px;
@@ -315,6 +415,15 @@
   <div class="loading">
     <div class="spinner"></div><br>正在获取北京最新数据...
   </div>
+</div>
+
+<!-- 每日资讯区块 -->
+<div class="news-section">
+  <div class="news-section-title">📰 每日资讯快报</div>
+  <div class="news-grid" id="newsGrid">
+    <div class="news-loading">资讯加载中...</div>
+  </div>
+  <div class="news-date" id="newsDate"></div>
 </div>
 
 <button class="refresh-btn" onclick="loadAll()">🔄 刷新数据</button>
@@ -727,11 +836,88 @@ function buildAdvice(c, aqInfo, pollenInfo) {
   `).join("");
 }
 
+// ============================================================
+// 每日资讯模块
+// ============================================================
+
+async function loadNews() {
+  const newsGrid = document.getElementById("newsGrid");
+  const newsDate = document.getElementById("newsDate");
+
+  try {
+    const resp = await fetch(`news.json?t=${Date.now()}`);
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    const data = await resp.json();
+
+    const sections = data.sections || [];
+
+    if (sections.length === 0) {
+      // 没有解析到结构化数据，降级显示原文
+      newsGrid.innerHTML = renderNewsRaw(data.content);
+    } else {
+      newsGrid.innerHTML = sections.map(s => renderNewsCard(s)).join('');
+    }
+
+    if (data.date) {
+      newsDate.textContent = `📅 资讯日期：${data.date}`;
+    }
+  } catch (e) {
+    newsGrid.innerHTML = `<div class="news-error">⚠️ 资讯暂未加载（${e.message}）<br><small>请确认已运行 extract_news.py 生成 news.json</small></div>`;
+    newsDate.textContent = '';
+  }
+}
+
+function renderNewsCard(section) {
+  const colorMap = {
+    '🤖': 'rgba(116,185,255,0.4)',
+    '💰': 'rgba(253,203,110,0.4)',
+    '🌍': 'rgba(85,239,196,0.4)',
+  };
+  const borderColor = colorMap[section.emoji] || 'rgba(116,185,255,0.4)';
+
+  const itemsHtml = (section.items || []).map(item => `
+    <div class="news-item" style="border-left-color:${borderColor}">
+      <div class="news-item-title">${escHtml(item.title)}</div>
+      <div class="news-item-desc">${escHtml(item.desc)}</div>
+    </div>
+  `).join('');
+
+  return `
+    <div class="news-card">
+      <div class="news-card-header">
+        <span>${section.emoji}</span>
+        <span>${escHtml(section.title)}</span>
+      </div>
+      <div class="news-items">
+        ${itemsHtml || '<div style="color:#718096;font-size:0.85em">暂无内容</div>'}
+      </div>
+    </div>
+  `;
+}
+
+function renderNewsRaw(content) {
+  // 降级：将 Markdown 文本简单渲染为 HTML
+  const escaped = escHtml(content)
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\n/g, '<br>');
+  return `<div class="news-card" style="grid-column:1/-1">
+    <div class="news-card-header">📰 每日资讯</div>
+    <div style="font-size:0.85em;color:#cbd5e0;line-height:1.8">${escaped}</div>
+  </div>`;
+}
+
+function escHtml(str) {
+  return (str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
 // 自动加载
 loadAll();
+loadNews();
 
 // 每30分钟自动刷新
 setInterval(loadAll, 30 * 60 * 1000);
+// 资讯每小时刷新一次（主要靠 extract_news.py 定期更新）
+setInterval(loadNews, 60 * 60 * 1000);
 </script>
 
 </body>
