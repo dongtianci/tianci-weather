@@ -6,7 +6,6 @@
   <title>天赐出行小助手</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
       font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
       background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
@@ -14,391 +13,211 @@
       color: #fff;
       padding: 20px;
     }
-
-    .header {
-      text-align: center;
-      padding: 30px 0 20px;
-    }
-
+    .header { text-align: center; padding: 30px 0 16px; }
     .header h1 {
-      font-size: 2em;
-      font-weight: 700;
+      font-size: 2em; font-weight: 700;
       background: linear-gradient(90deg, #74b9ff, #a29bfe);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       margin-bottom: 6px;
     }
+    .header .subtitle { color: #a0aec0; font-size: 0.9em; }
+    .header .location { margin-top: 8px; font-size: 1em; color: #74b9ff; }
 
-    .header .subtitle {
-      color: #a0aec0;
-      font-size: 0.9em;
+    /* 城市搜索 */
+    .search-wrap {
+      display: flex; justify-content: center; gap: 10px;
+      margin: 14px auto 6px; max-width: 420px;
     }
-
-    .header .location {
-      margin-top: 8px;
-      font-size: 1em;
-      color: #74b9ff;
+    .search-input {
+      flex: 1; padding: 10px 16px; border-radius: 30px;
+      border: 1px solid rgba(116,185,255,0.35);
+      background: rgba(255,255,255,0.07); color: #fff;
+      font-size: 0.95em; outline: none; transition: border 0.2s;
     }
-
-    .last-update {
-      text-align: center;
-      color: #718096;
-      font-size: 0.8em;
-      margin-bottom: 20px;
+    .search-input::placeholder { color: #718096; }
+    .search-input:focus { border-color: #74b9ff; }
+    .search-btn {
+      padding: 10px 20px; border-radius: 30px; border: none;
+      background: linear-gradient(90deg, #74b9ff, #a29bfe);
+      color: #fff; font-size: 0.9em; font-weight: 600;
+      cursor: pointer; transition: opacity 0.2s; white-space: nowrap;
     }
+    .search-btn:hover { opacity: 0.85; }
 
+    .last-update { text-align: center; color: #718096; font-size: 0.8em; margin-bottom: 20px; }
     .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-      max-width: 1100px;
-      margin: 0 auto;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px; max-width: 1100px; margin: 0 auto;
     }
-
     .card {
       background: rgba(255,255,255,0.07);
       border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 20px;
-      padding: 28px 24px;
-      backdrop-filter: blur(10px);
-      transition: transform 0.2s;
+      border-radius: 20px; padding: 28px 24px;
+      backdrop-filter: blur(10px); transition: transform 0.2s;
     }
-
     .card:hover { transform: translateY(-3px); }
-
     .card-title {
-      font-size: 0.85em;
-      color: #a0aec0;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      font-size: 0.85em; color: #a0aec0; text-transform: uppercase;
+      letter-spacing: 1px; margin-bottom: 16px;
+      display: flex; align-items: center; gap: 8px;
     }
-
     .card-icon { font-size: 1.2em; }
 
-    /* 天气卡片 */
-    .weather-main {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 20px;
-    }
-
+    /* 天气 */
+    .weather-main { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
     .weather-icon { font-size: 4em; }
-
-    .weather-temp {
-      font-size: 3.5em;
-      font-weight: 700;
-      line-height: 1;
-    }
-
+    .weather-temp { font-size: 3.5em; font-weight: 700; line-height: 1; }
     .weather-temp sup { font-size: 0.4em; vertical-align: super; }
+    .weather-desc { font-size: 1.1em; color: #cbd5e0; margin-top: 4px; }
+    .weather-details { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .detail-item { background: rgba(255,255,255,0.05); border-radius: 10px; padding: 10px 14px; }
+    .detail-label { font-size: 0.75em; color: #718096; margin-bottom: 4px; }
+    .detail-value { font-size: 1.1em; font-weight: 600; }
 
-    .weather-desc {
-      font-size: 1.1em;
-      color: #cbd5e0;
-      margin-top: 4px;
-    }
-
-    .weather-details {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    .detail-item {
-      background: rgba(255,255,255,0.05);
-      border-radius: 10px;
-      padding: 10px 14px;
-    }
-
-    .detail-label {
-      font-size: 0.75em;
-      color: #718096;
-      margin-bottom: 4px;
-    }
-
-    .detail-value {
-      font-size: 1.1em;
-      font-weight: 600;
-    }
-
-    /* AQI 卡片 */
-    .aqi-value {
-      font-size: 4em;
-      font-weight: 800;
-      line-height: 1;
-      margin: 10px 0;
-    }
-
-    .aqi-label {
-      font-size: 1.1em;
-      padding: 4px 14px;
-      border-radius: 20px;
-      display: inline-block;
-      margin-bottom: 16px;
-    }
-
-    .aqi-bar-wrap {
-      background: rgba(255,255,255,0.1);
-      border-radius: 10px;
-      height: 8px;
-      margin-bottom: 8px;
-      overflow: hidden;
-    }
-
-    .aqi-bar {
-      height: 100%;
-      border-radius: 10px;
-      transition: width 1s ease;
-    }
-
-    .pm-items {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 14px;
-    }
-
-    .pm-item {
-      background: rgba(255,255,255,0.05);
-      border-radius: 10px;
-      padding: 10px 12px;
-      text-align: center;
-    }
-
+    /* AQI */
+    .aqi-value { font-size: 4em; font-weight: 800; line-height: 1; margin: 10px 0; }
+    .aqi-label { font-size: 1.1em; padding: 4px 14px; border-radius: 20px; display: inline-block; margin-bottom: 16px; }
+    .aqi-bar-wrap { background: rgba(255,255,255,0.1); border-radius: 10px; height: 8px; margin-bottom: 8px; overflow: hidden; }
+    .aqi-bar { height: 100%; border-radius: 10px; transition: width 1s ease; }
+    .pm-items { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+    .pm-item { background: rgba(255,255,255,0.05); border-radius: 10px; padding: 10px 12px; text-align: center; }
     .pm-name { font-size: 0.75em; color: #a0aec0; margin-bottom: 4px; }
     .pm-val  { font-size: 1.3em; font-weight: 700; }
     .pm-unit { font-size: 0.65em; color: #718096; }
 
-    /* 花粉卡片 */
-    .pollen-level {
-      font-size: 2.5em;
-      font-weight: 800;
-      margin: 8px 0;
-    }
-
-    .pollen-desc {
-      color: #cbd5e0;
-      font-size: 0.9em;
-      line-height: 1.6;
-      margin-bottom: 16px;
-    }
-
-    .pollen-types {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .pollen-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .pollen-name { font-size: 0.85em; color: #a0aec0; width: 60px; flex-shrink: 0; }
-
-    .pollen-bar-wrap {
-      flex: 1;
-      background: rgba(255,255,255,0.1);
-      border-radius: 10px;
-      height: 6px;
-      overflow: hidden;
-    }
-
-    .pollen-bar {
-      height: 100%;
-      border-radius: 10px;
-      transition: width 1s ease;
-    }
-
-    .pollen-val-label { font-size: 0.8em; width: 28px; text-align: right; }
+    /* 花粉 */
+    .pollen-level { font-size: 2.5em; font-weight: 800; margin: 8px 0; }
+    .pollen-desc  { color: #cbd5e0; font-size: 0.9em; line-height: 1.6; margin-bottom: 16px; }
+    .pollen-types { display: flex; flex-direction: column; gap: 10px; }
+    .pollen-row   { display: flex; align-items: center; gap: 10px; }
+    .pollen-name  { font-size: 0.85em; color: #a0aec0; width: 80px; flex-shrink: 0; }
+    .pollen-bar-wrap { flex: 1; background: rgba(255,255,255,0.1); border-radius: 10px; height: 6px; overflow: hidden; }
+    .pollen-bar   { height: 100%; border-radius: 10px; transition: width 1s ease; }
+    .pollen-val-label { font-size: 0.8em; width: 32px; text-align: right; }
 
     /* 颜色 */
-    .good      { color: #00b894; }
-    .moderate  { color: #fdcb6e; }
-    .unhealthy { color: #e17055; }
-    .very-bad  { color: #d63031; }
+    .good      { color: #00b894; } .moderate  { color: #fdcb6e; }
+    .unhealthy { color: #e17055; } .very-bad  { color: #d63031; }
     .hazardous { color: #6c5ce7; }
-
-    .bg-good      { background: #00b894; }
-    .bg-moderate  { background: #fdcb6e; }
-    .bg-unhealthy { background: #e17055; }
-    .bg-very-bad  { background: #d63031; }
+    .bg-good      { background: #00b894; } .bg-moderate  { background: #fdcb6e; }
+    .bg-unhealthy { background: #e17055; } .bg-very-bad  { background: #d63031; }
     .bg-hazardous { background: #6c5ce7; }
 
-    /* 出行建议 */
-    .advice-card {
-      grid-column: 1 / -1;
-    }
+    /* 7天预报 */
+    .forecast-card { grid-column: 1 / -1; }
+    .forecast-list { display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; }
+    .forecast-item { background: rgba(255,255,255,0.05); border-radius: 14px; padding: 12px 8px; text-align: center; }
+    .forecast-day  { font-size: 0.75em; color: #a0aec0; margin-bottom: 6px; }
+    .forecast-icon { font-size: 1.8em; margin: 4px 0; }
+    .forecast-hi   { font-size: 1em; font-weight: 700; }
+    .forecast-lo   { font-size: 0.8em; color: #718096; margin-top: 2px; }
+    .forecast-desc { font-size: 0.7em; color: #a0aec0; margin-top: 4px; }
 
-    .advice-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 12px;
-      margin-top: 10px;
+    /* 出行建议 + 时段 */
+    .advice-card { grid-column: 1 / -1; }
+    .advice-tabs { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+    .advice-tab {
+      padding: 6px 16px; border-radius: 20px; font-size: 0.82em;
+      cursor: pointer; border: 1px solid rgba(255,255,255,0.15);
+      background: transparent; color: #a0aec0; transition: all 0.2s;
     }
-
+    .advice-tab.active {
+      background: linear-gradient(90deg,#74b9ff,#a29bfe);
+      color: #fff; border-color: transparent;
+    }
+    .advice-panel { display: none; }
+    .advice-panel.active { display: block; }
+    .advice-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
     .advice-item {
-      background: rgba(255,255,255,0.05);
-      border-radius: 12px;
-      padding: 14px 16px;
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
+      background: rgba(255,255,255,0.05); border-radius: 12px;
+      padding: 14px 16px; display: flex; align-items: flex-start; gap: 12px;
     }
-
     .advice-emoji { font-size: 1.6em; }
-    .advice-text { font-size: 0.88em; color: #cbd5e0; line-height: 1.5; }
+    .advice-text  { font-size: 0.88em; color: #cbd5e0; line-height: 1.5; }
     .advice-text strong { color: #fff; display: block; margin-bottom: 2px; }
 
-    /* 每日资讯 */
-    .news-section {
-      max-width: 1100px;
-      margin: 24px auto 0;
-    }
-
+    /* 资讯 */
+    .news-section { max-width: 1100px; margin: 24px auto 0; }
     .news-section-title {
-      text-align: center;
-      font-size: 1em;
-      color: #a0aec0;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
+      text-align: center; font-size: 1em; color: #a0aec0;
+      letter-spacing: 2px; margin-bottom: 12px;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
     }
-
-    .news-section-title::before,
-    .news-section-title::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: rgba(255,255,255,0.1);
-      max-width: 200px;
+    .news-section-title::before, .news-section-title::after {
+      content: ''; flex: 1; height: 1px;
+      background: rgba(255,255,255,0.1); max-width: 200px;
     }
-
-    .news-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
+    .news-toggle-btn {
+      display: block; margin: 0 auto 14px; padding: 6px 20px;
+      border-radius: 20px; border: 1px solid rgba(116,185,255,0.35);
+      background: transparent; color: #74b9ff; font-size: 0.85em;
+      cursor: pointer; transition: all 0.2s;
     }
-
+    .news-toggle-btn:hover { background: rgba(116,185,255,0.1); }
+    .news-collapsible { overflow: hidden; transition: max-height 0.4s ease; max-height: 3000px; }
+    .news-collapsible.collapsed { max-height: 0; }
+    .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
     .news-card {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 20px;
-      padding: 24px 22px;
-      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px; padding: 24px 22px; backdrop-filter: blur(10px);
     }
-
     .news-card-header {
-      font-size: 0.85em;
-      color: #a0aec0;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: 600;
+      font-size: 0.85em; color: #a0aec0; text-transform: uppercase;
+      letter-spacing: 1px; margin-bottom: 16px;
+      display: flex; align-items: center; gap: 8px; font-weight: 600;
     }
+    .news-items { display: flex; flex-direction: column; gap: 14px; }
+    .news-item  { border-left: 2px solid rgba(116,185,255,0.4); padding-left: 12px; }
+    .news-item-title { font-size: 0.88em; font-weight: 600; color: #e2e8f0; line-height: 1.4; margin-bottom: 4px; }
+    .news-item-desc  { font-size: 0.78em; color: #718096; line-height: 1.5; }
+    .news-date  { text-align: center; color: #4a5568; font-size: 0.75em; margin-top: 14px; }
+    .news-loading { text-align: center; padding: 30px; color: #718096; font-size: 0.9em; }
+    .news-error   { text-align: center; padding: 20px; color: #e17055; font-size: 0.85em; }
 
-    .news-items {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .news-item {
-      border-left: 2px solid rgba(116,185,255,0.4);
-      padding-left: 12px;
-    }
-
-    .news-item-title {
-      font-size: 0.88em;
-      font-weight: 600;
-      color: #e2e8f0;
-      line-height: 1.4;
-      margin-bottom: 4px;
-    }
-
-    .news-item-desc {
-      font-size: 0.78em;
-      color: #718096;
-      line-height: 1.5;
-    }
-
-    .news-date {
-      text-align: center;
-      color: #4a5568;
-      font-size: 0.75em;
-      margin-top: 14px;
-    }
-
-    .news-loading {
-      text-align: center;
-      padding: 30px;
-      color: #718096;
-      font-size: 0.9em;
-    }
-
-    .news-error {
-      text-align: center;
-      padding: 20px;
-      color: #e17055;
-      font-size: 0.85em;
-    }
-
+    /* 刷新按钮 */
     .refresh-btn {
-      display: block;
-      margin: 24px auto 10px;
-      padding: 10px 30px;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      margin: 24px auto 10px; padding: 10px 30px;
       background: linear-gradient(90deg, #74b9ff, #a29bfe);
-      border: none;
-      border-radius: 30px;
-      color: #fff;
-      font-size: 0.95em;
-      font-weight: 600;
-      cursor: pointer;
-      transition: opacity 0.2s;
+      border: none; border-radius: 30px; color: #fff;
+      font-size: 0.95em; font-weight: 600; cursor: pointer;
+      transition: opacity 0.2s; min-width: 140px;
     }
-
     .refresh-btn:hover { opacity: 0.85; }
-
-    .loading {
-      text-align: center;
-      padding: 60px;
-      color: #718096;
-      font-size: 1.1em;
+    .refresh-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .refresh-btn .btn-spinner {
+      display: none; width: 16px; height: 16px;
+      border: 2px solid rgba(255,255,255,0.4); border-top-color: #fff;
+      border-radius: 50%; animation: spin 0.7s linear infinite;
     }
+    .refresh-btn.loading .btn-spinner { display: inline-block; }
+    .refresh-btn.loading .btn-text   { display: none; }
 
+    .loading { text-align: center; padding: 60px; color: #718096; font-size: 1.1em; }
     .spinner {
-      display: inline-block;
-      width: 30px; height: 30px;
-      border: 3px solid rgba(116,185,255,0.3);
-      border-top-color: #74b9ff;
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-      margin-bottom: 12px;
+      display: inline-block; width: 30px; height: 30px;
+      border: 3px solid rgba(116,185,255,0.3); border-top-color: #74b9ff;
+      border-radius: 50%; animation: spin 0.8s linear infinite; margin-bottom: 12px;
     }
-
     @keyframes spin { to { transform: rotate(360deg); } }
 
     .error-tip {
-      background: rgba(214, 48, 49, 0.15);
-      border: 1px solid rgba(214, 48, 49, 0.3);
-      border-radius: 10px;
-      padding: 12px 16px;
-      font-size: 0.85em;
-      color: #fab1a0;
-      margin-top: 10px;
+      background: rgba(214,48,49,0.15); border: 1px solid rgba(214,48,49,0.3);
+      border-radius: 10px; padding: 12px 16px; font-size: 0.85em; color: #fab1a0; margin-top: 10px;
+    }
+
+    /* 移动端 */
+    @media (max-width: 700px) {
+      .forecast-list { grid-template-columns: repeat(4, 1fr); }
+    }
+    @media (max-width: 480px) {
+      body { padding: 12px; }
+      .header h1 { font-size: 1.5em; }
+      .weather-temp { font-size: 2.8em; }
+      .card { padding: 20px 16px; }
+      .search-wrap { flex-direction: column; max-width: 100%; }
+      .search-btn { width: 100%; }
+      .forecast-list { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
@@ -406,224 +225,224 @@
 
 <div class="header">
   <h1>🚗 天赐出行小助手</h1>
-  <div class="subtitle">北京实时天气 · 空气质量 · 花粉监测</div>
+  <div class="subtitle">实时天气 · 空气质量 · 花粉监测</div>
   <div class="location" id="locationLine">📍 北京市</div>
 </div>
+
+<div class="search-wrap">
+  <input class="search-input" id="cityInput" type="text" placeholder="搜索城市，如：上海、广州、成都…" />
+  <button class="search-btn" onclick="searchCity()">🔍 查询</button>
+</div>
+
 <div class="last-update" id="lastUpdate">数据加载中...</div>
 
 <div class="grid" id="mainGrid">
-  <div class="loading">
-    <div class="spinner"></div><br>正在获取北京最新数据...
-  </div>
+  <div class="loading"><div class="spinner"></div><br>正在获取北京最新数据...</div>
 </div>
 
-<!-- 每日资讯区块 -->
 <div class="news-section">
   <div class="news-section-title">📰 每日资讯快报</div>
-  <div class="news-grid" id="newsGrid">
-    <div class="news-loading">资讯加载中...</div>
+  <button class="news-toggle-btn" id="newsToggleBtn" onclick="toggleNews()">▲ 收起资讯</button>
+  <div class="news-collapsible" id="newsCollapsible">
+    <div class="news-grid" id="newsGrid"><div class="news-loading">资讯加载中...</div></div>
+    <div class="news-date" id="newsDate"></div>
   </div>
-  <div class="news-date" id="newsDate"></div>
 </div>
 
-<button class="refresh-btn" onclick="loadAll()">🔄 刷新数据</button>
+<button class="refresh-btn" id="refreshBtn" onclick="handleRefresh()">
+  <span class="btn-spinner"></span>
+  <span class="btn-text">🔄 刷新数据</span>
+</button>
 
 <script>
 // ============================================================
-// 数据源配置
-// 1. 天气 & 空气质量: Open-Meteo (完全免费, 无需Key)
-//    https://open-meteo.com/
-// 2. 花粉: Open-Meteo Air Quality API (提供花粉数据)
+// 状态
 // ============================================================
-
-const BEIJING = { lat: 39.9042, lon: 116.4074 };
-const QWEATHER_KEY = '0faf8f608b684ce2a94de2b1807a2545';
-const QWEATHER_LOCATION = '101010100'; // 北京
+let currentCity = { name: "北京市", lat: 39.9042, lon: 116.4074 };
+const QWEATHER_KEY      = '0faf8f608b684ce2a94de2b1807a2545';
+const QWEATHER_LOCATION = '101010100';
 
 const WMO_CODES = {
-  0: ["☀️", "晴"],
-  1: ["🌤️", "多云转晴"], 2: ["⛅", "局部多云"], 3: ["☁️", "阴"],
-  45: ["🌫️", "雾"], 48: ["🌫️", "雾凇"],
-  51: ["🌦️", "细雨"], 53: ["🌧️", "小雨"], 55: ["🌧️", "大雨"],
-  61: ["🌧️", "小雨"], 63: ["🌧️", "中雨"], 65: ["🌧️", "大雨"],
-  71: ["🌨️", "小雪"], 73: ["❄️", "中雪"], 75: ["❄️", "大雪"],
-  77: ["🌨️", "雪粒"],
-  80: ["🌦️", "阵雨"], 81: ["🌧️", "阵雨"], 82: ["⛈️", "强阵雨"],
-  85: ["🌨️", "阵雪"], 86: ["❄️", "强阵雪"],
-  95: ["⛈️", "雷暴"], 96: ["⛈️", "雷暴夹冰雹"], 99: ["⛈️", "强雷暴"]
+  0:["☀️","晴"],1:["🌤️","多云转晴"],2:["⛅","局部多云"],3:["☁️","阴"],
+  45:["🌫️","雾"],48:["🌫️","雾凇"],
+  51:["🌦️","细雨"],53:["🌧️","小雨"],55:["🌧️","大雨"],
+  61:["🌧️","小雨"],63:["🌧️","中雨"],65:["🌧️","大雨"],
+  71:["🌨️","小雪"],73:["❄️","中雪"],75:["❄️","大雪"],77:["🌨️","雪粒"],
+  80:["🌦️","阵雨"],81:["🌧️","阵雨"],82:["⛈️","强阵雨"],
+  85:["🌨️","阵雪"],86:["❄️","强阵雪"],
+  95:["⛈️","雷暴"],96:["⛈️","雷暴夹冰雹"],99:["⛈️","强雷暴"]
 };
 
+// ============================================================
+// 城市搜索
+// ============================================================
+async function searchCity() {
+  const input = document.getElementById("cityInput").value.trim();
+  if (!input) return;
+  try {
+    const res  = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(input)}&count=1&language=zh&format=json`);
+    const data = await res.json();
+    if (!data.results || !data.results.length) { alert("未找到城市，请尝试其他关键词"); return; }
+    const c = data.results[0];
+    currentCity = { name: c.name + (c.admin1 ? ` · ${c.admin1}` : ''), lat: c.latitude, lon: c.longitude };
+    document.getElementById("locationLine").textContent = `📍 ${currentCity.name}`;
+    document.getElementById("cityInput").value = "";
+    loadAll();
+  } catch(e) { alert("城市搜索失败，请检查网络"); }
+}
+document.getElementById("cityInput").addEventListener("keydown", e => { if (e.key === "Enter") searchCity(); });
+
+// ============================================================
+// 工具函数
+// ============================================================
 function getAqiInfo(aqi) {
-  if (aqi <= 50)  return { label: "优", cls: "good",      bgCls: "bg-good",      bar: aqi/500*100, tip: "空气质量令人满意，基本无污染" };
-  if (aqi <= 100) return { label: "良", cls: "moderate",  bgCls: "bg-moderate",  bar: aqi/500*100, tip: "空气质量可接受，但对极少数人有轻微影响" };
-  if (aqi <= 150) return { label: "轻度", cls: "unhealthy",bgCls: "bg-unhealthy", bar: aqi/500*100, tip: "一般人群可正常活动，敏感人群减少户外活动" };
-  if (aqi <= 200) return { label: "中度", cls: "very-bad", bgCls: "bg-very-bad",  bar: aqi/500*100, tip: "敏感人群避免户外活动，一般人群减少户外活动" };
-  if (aqi <= 300) return { label: "重度", cls: "hazardous",bgCls: "bg-hazardous", bar: aqi/500*100, tip: "所有人应减少户外活动，开启室内空气净化" };
-  return { label: "严重", cls: "hazardous", bgCls: "bg-hazardous", bar: 100, tip: "所有人应留在室内，避免一切户外活动" };
+  if (aqi <= 50)  return { label:"优",   cls:"good",      bgCls:"bg-good",      bar:aqi/500*100, tip:"空气质量令人满意，基本无污染" };
+  if (aqi <= 100) return { label:"良",   cls:"moderate",  bgCls:"bg-moderate",  bar:aqi/500*100, tip:"空气质量可接受，但对极少数人有轻微影响" };
+  if (aqi <= 150) return { label:"轻度", cls:"unhealthy", bgCls:"bg-unhealthy", bar:aqi/500*100, tip:"一般人群可正常活动，敏感人群减少户外活动" };
+  if (aqi <= 200) return { label:"中度", cls:"very-bad",  bgCls:"bg-very-bad",  bar:aqi/500*100, tip:"敏感人群避免户外活动，一般人群减少户外活动" };
+  if (aqi <= 300) return { label:"重度", cls:"hazardous", bgCls:"bg-hazardous", bar:aqi/500*100, tip:"所有人应减少户外活动，开启室内空气净化" };
+  return { label:"严重", cls:"hazardous", bgCls:"bg-hazardous", bar:100, tip:"所有人应留在室内，避免一切户外活动" };
 }
 
-// ============================================================
-// 和风天气花粉数据解析（type=15 花粉指数）
-// level: 1极低 2低 3中等 4偏高 5高 （和风天气自定义等级）
-// ============================================================
 function parseQWeatherPollen(daily) {
-  // 和风天气返回格式：{ level: "3", category: "中等", text: "..." }
   const levelNum = parseInt(daily.level) || 0;
-  const category = daily.category || '';
-  const text      = daily.text     || '';
-
+  const text     = daily.text || '';
   const levelMap = {
-    1: { label: '极低', cls: 'good',      pct: 5  },
-    2: { label: '低',   cls: 'good',      pct: 22 },
-    3: { label: '中等', cls: 'moderate',  pct: 50 },
-    4: { label: '偏高', cls: 'unhealthy', pct: 75 },
-    5: { label: '很高', cls: 'very-bad',  pct: 92 },
+    1:{label:'极低',cls:'good',pct:5},2:{label:'低',cls:'good',pct:22},
+    3:{label:'中等',cls:'moderate',pct:50},4:{label:'偏高',cls:'unhealthy',pct:75},
+    5:{label:'很高',cls:'very-bad',pct:92}
   };
-  const overall = levelMap[levelNum] || { label: category || '暂无', cls: 'moderate', pct: 30 };
-
+  const overall = levelMap[levelNum] || {label:daily.category||'暂无',cls:'moderate',pct:30};
   const adviceMap = {
-    '极低': '花粉浓度极低，过敏人群可放心出行',
-    '低':   '花粉浓度较低，过敏人群可适当出行',
-    '中等': '花粉浓度中等，过敏人群建议佩戴口罩',
-    '偏高': '花粉浓度较高，过敏人群尽量减少户外活动',
-    '很高': '花粉浓度很高，过敏人群请勿外出，备好抗过敏药',
+    '极低':'花粉浓度极低，过敏人群可放心出行','低':'花粉浓度较低，过敏人群可适当出行',
+    '中等':'花粉浓度中等，过敏人群建议佩戴口罩','偏高':'花粉浓度较高，过敏人群尽量减少户外活动',
+    '很高':'花粉浓度很高，过敏人群请勿外出，备好抗过敏药'
   };
+  return {overall,tree:overall,grass:{label:'--',cls:'good',pct:0},mugwort:{label:'--',cls:'good',pct:0},
+    dominantType:text||'综合花粉指数',advice:adviceMap[overall.label]||text,isEstimated:false};
+}
 
-  return {
-    overall,
-    tree:         overall,  // 和风天气综合指数，不分类型
-    grass:        { label: '--', cls: 'good', pct: 0 },
-    mugwort:      { label: '--', cls: 'good', pct: 0 },
-    dominantType: text || '北京综合花粉指数',
-    advice:       adviceMap[overall.label] || text,
-    isEstimated:  false
-  };
+function estimatePollen(c) {
+  const now=new Date(), doy=Math.floor((now-new Date(now.getFullYear(),0,0))/86400000);
+  const temp=c.temperature_2m, humid=c.relative_humidity_2m, wind=c.wind_speed_10m, rain=c.precipitation;
+  let tF=0,gF=0,mF=0;
+  if(doy>=50&&doy<=120) tF=Math.exp(-Math.pow(doy-87,2)/(2*22*22));
+  if(doy>=120&&doy<=180) gF=Math.exp(-Math.pow(doy-150,2)/(2*20*20));
+  if(doy>=210&&doy<=280) mF=Math.exp(-Math.pow(doy-245,2)/(2*25*25));
+  const rP=rain>0?Math.max(0.05,1-rain*0.5):1, hP=humid>80?0.3:humid>65?0.7:1;
+  const tB=(temp>=15&&temp<=28)?1.2:(temp>=8&&temp<15)?0.8:temp<8?0.3:0.9;
+  const wB=(wind>=2&&wind<=6)?1.2:(wind>6&&wind<=10)?1:wind>10?0.7:0.9;
+  const wm=rP*hP*tB*wB;
+  const ti=Math.min(1,tF*wm), gi=Math.min(1,gF*wm*0.8), mi=Math.min(1,mF*wm*0.9);
+  const ov=Math.max(ti,gi,mi);
+  function lv(i){
+    if(i<0.05)return{label:"极低",pct:4,cls:"good"};
+    if(i<0.20)return{label:"低",pct:20,cls:"good"};
+    if(i<0.45)return{label:"中等",pct:50,cls:"moderate"};
+    if(i<0.70)return{label:"偏高",pct:75,cls:"unhealthy"};
+    return{label:"很高",pct:92,cls:"very-bad"};
+  }
+  const ovL=lv(ov);
+  let dt="暂无明显花粉";
+  if(ti>0.1&&ti>=gi&&ti>=mi)dt="🌿 树木花粉（柏树/榆树/白蜡）为主";
+  else if(gi>0.1)dt="🌿 草本花粉为主";
+  else if(mi>0.1)dt="🌿 艾草/蒿草花粉为主";
+  const am={"极低":"花粉浓度极低，过敏人群可放心出行","低":"花粉浓度较低，过敏人群可适当出行",
+    "中等":"花粉浓度中等，过敏人群建议佩戴口罩","偏高":"花粉浓度较高，过敏人群尽量减少户外活动",
+    "很高":"花粉浓度很高，过敏人群请勿外出，备好抗过敏药"};
+  return{overall:ovL,tree:lv(ti),grass:lv(gi),mugwort:lv(mi),dominantType:dt,advice:am[ovL.label],isEstimated:true};
+}
+
+function renderPollenBar(name, lv) {
+  const bg={good:'bg-good',moderate:'bg-moderate',unhealthy:'bg-unhealthy','very-bad':'bg-very-bad'}[lv.cls]||'bg-good';
+  return `<div class="pollen-row">
+    <div class="pollen-name">${name}</div>
+    <div class="pollen-bar-wrap"><div class="pollen-bar ${bg}" style="width:${lv.pct}%"></div></div>
+    <div class="pollen-val-label ${lv.cls}">${lv.label}</div>
+  </div>`;
 }
 
 // ============================================================
-// 花粉智能估算模型（基于北京气象数据 + 季节规律）
-// 北京花粉规律：
-//   2月下旬~4月：树木花粉高峰（柏树、榆树、白蜡等）
-//   5月~6月：草本花粉上升
-//   8月~9月：艾草/蒿草花粉高峰
-//   降雨/高湿/低温/大风 → 花粉浓度降低
+// 出行建议（支持时段）
 // ============================================================
-function estimatePollen(weatherCurrent) {
-  const now   = new Date();
-  const month = now.getMonth() + 1; // 1-12
-  const day   = now.getDate();
-  const doy   = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / 86400000); // 年内第几天
+function buildAdvice(c, aqInfo, pollenInfo, hourlyData, targetHour) {
+  // 如果有逐小时数据，用对应时段的值；否则用当前值
+  let temp=c.temperature_2m, rain=c.precipitation, windSpeed=c.wind_speed_10m;
+  let aqiForHour=aqInfo, pollenForHour=pollenInfo;
 
-  const temp  = weatherCurrent.temperature_2m;
-  const humid = weatherCurrent.relative_humidity_2m;
-  const wind  = weatherCurrent.wind_speed_10m;
-  const rain  = weatherCurrent.precipitation;
-
-  // --- 季节基础系数（北京花粉历年规律）---
-  // 以"树木花粉"为主轴（2月底~4月为高峰）
-  // 峰值区间：3月15日~4月15日（doy 74~105）
-  let treeFactor = 0;
-  if (doy >= 50 && doy <= 120) {
-    // 高斯钟形曲线，峰值在 doy=87（3月28日左右）
-    treeFactor = Math.exp(-Math.pow(doy - 87, 2) / (2 * 22 * 22));
+  if (hourlyData && targetHour !== undefined) {
+    const idx = hourlyData.time.findIndex(t => new Date(t).getHours() === targetHour);
+    if (idx >= 0) {
+      temp      = hourlyData.temperature_2m[idx] ?? temp;
+      rain      = hourlyData.precipitation[idx] ?? rain;
+      windSpeed = hourlyData.wind_speed_10m[idx] ?? windSpeed;
+    }
   }
 
-  // 草本花粉：5月~6月
-  let grassFactor = 0;
-  if (doy >= 120 && doy <= 180) {
-    grassFactor = Math.exp(-Math.pow(doy - 150, 2) / (2 * 20 * 20));
-  }
+  const items = [];
+  if (temp < 5)        items.push({e:"🧥",title:"注意保暖",text:`气温${Math.round(temp)}°C，需穿厚外套`});
+  else if (temp < 15)  items.push({e:"🧣",title:"适当添衣",text:`气温${Math.round(temp)}°C，建议穿外套`});
+  else if (temp > 32)  items.push({e:"☀️",title:"注意防暑",text:`气温${Math.round(temp)}°C，高温出行注意防晒`});
+  else                 items.push({e:"😊",title:"气温舒适",text:`气温${Math.round(temp)}°C，外出体感良好`});
 
-  // 艾草花粉：8月~9月
-  let mugwortFactor = 0;
-  if (doy >= 210 && doy <= 280) {
-    mugwortFactor = Math.exp(-Math.pow(doy - 245, 2) / (2 * 25 * 25));
-  }
+  if (rain > 0) items.push({e:"☂️",title:"雨雪出行",text:"当前有降水，建议携带雨具"});
 
-  // --- 气象修正系数 ---
-  // 降雨：有雨时花粉浓度大幅下降
-  const rainPenalty = rain > 0 ? Math.max(0.05, 1 - rain * 0.5) : 1.0;
-  // 湿度：湿度>80%时花粉难以飘散
-  const humidPenalty = humid > 80 ? 0.3 : humid > 65 ? 0.7 : 1.0;
-  // 温度：温度越高（15-25°C区间）花粉越活跃，<5°C或>35°C时降低
-  const tempBoost = (temp >= 15 && temp <= 28) ? 1.2 :
-                    (temp >= 8  && temp <  15) ? 0.8 :
-                    (temp <  8) ? 0.3 : 0.9;
-  // 风速：微风（2-5m/s）利于花粉传播，大风(>10m/s)反而吹散
-  const windBoost = (wind >= 2 && wind <= 6) ? 1.2 :
-                    (wind > 6  && wind <= 10) ? 1.0 :
-                    (wind > 10) ? 0.7 : 0.9;
+  if      (aqInfo.label==="优"||aqInfo.label==="良") items.push({e:"🌬️",title:"空气良好",text:"今日空气质量不错，适合户外活动"});
+  else if (aqInfo.label==="轻度"||aqInfo.label==="中度") items.push({e:"😷",title:"空气一般",text:"建议佩戴口罩，减少长时间户外活动"});
+  else items.push({e:"🏠",title:"空气较差",text:"空气污染严重，建议尽量减少外出"});
 
-  const weatherMod = rainPenalty * humidPenalty * tempBoost * windBoost;
+  if      (pollenInfo.cls==="good")     items.push({e:"🌸",title:"花粉安全",text:"花粉浓度低，过敏人群可正常出行"});
+  else if (pollenInfo.cls==="moderate") items.push({e:"🤧",title:"花粉注意",text:"花粉浓度中等，过敏人群建议佩戴口罩"});
+  else                                  items.push({e:"🚫",title:"花粉警报",text:"花粉浓度高，过敏人群建议减少外出"});
 
-  // --- 计算各花粉估算值（0~1 的归一化指数）---
-  const treeIndex    = Math.min(1, treeFactor    * weatherMod * 1.0);
-  const grassIndex   = Math.min(1, grassFactor   * weatherMod * 0.8);
-  const mugwortIndex = Math.min(1, mugwortFactor * weatherMod * 0.9);
+  if (windSpeed > 10) items.push({e:"💨",title:"大风预警",text:`风速${windSpeed}m/s，出行注意安全`});
 
-  // 综合指数（取最高）
-  const overall = Math.max(treeIndex, grassIndex, mugwortIndex);
-
-  // --- 等级判定 ---
-  function toLevel(idx) {
-    if (idx < 0.05) return { label: "极低", pct: 4,  cls: "good" };
-    if (idx < 0.20) return { label: "低",   pct: 20, cls: "good" };
-    if (idx < 0.45) return { label: "中等", pct: 50, cls: "moderate" };
-    if (idx < 0.70) return { label: "偏高", pct: 75, cls: "unhealthy" };
-    return               { label: "很高", pct: 92, cls: "very-bad" };
-  }
-
-  const overallLv = toLevel(overall);
-
-  // 主要花粉类型说明
-  let dominantType = "暂无明显花粉";
-  if (treeIndex > 0.1 && treeIndex >= grassIndex && treeIndex >= mugwortIndex) {
-    dominantType = "树木花粉（柏树/榆树/白蜡）为主";
-  } else if (grassIndex > 0.1) {
-    dominantType = "草本花粉为主";
-  } else if (mugwortIndex > 0.1) {
-    dominantType = "艾草/蒿草花粉为主";
-  }
-
-  // 建议
-  const adviceMap = {
-    "极低": "花粉浓度极低，过敏人群可放心出行",
-    "低":   "花粉浓度较低，过敏人群可适当出行",
-    "中等": "花粉浓度中等，过敏人群建议佩戴口罩",
-    "偏高": "花粉浓度较高，过敏人群尽量减少户外活动",
-    "很高": "花粉浓度很高，过敏人群请勿外出，备好抗过敏药"
-  };
-
-  return {
-    overall:      overallLv,
-    tree:         toLevel(treeIndex),
-    grass:        toLevel(grassIndex),
-    mugwort:      toLevel(mugwortIndex),
-    dominantType,
-    advice:       adviceMap[overallLv.label],
-    isEstimated:  true  // 标注为估算数据
-  };
+  return items.map(i=>`<div class="advice-item"><div class="advice-emoji">${i.e}</div><div class="advice-text"><strong>${i.title}</strong>${i.text}</div></div>`).join("");
 }
 
-function getPollenLevel(val, type) {
-  if (val === null || val === undefined) return { label: "暂无", pct: 0, cls: "good" };
-  const thresholds = { birch:[10,100,1000], grass:[5,50,200], alder:[10,100,1000], mugwort:[5,50,200] };
-  const t = thresholds[type] || [10,100,500];
-  if (val < t[0]) return { label: "极低", pct: 5,  cls: "good" };
-  if (val < t[1]) return { label: "低",   pct: 25, cls: "good" };
-  if (val < t[2]) return { label: "中",   pct: 60, cls: "moderate" };
-  return { label: "高", pct: 90, cls: "unhealthy" };
+// ============================================================
+// 7天预报渲染
+// ============================================================
+function renderForecast(daily) {
+  const days = ["今天","明天","后天","周四","周五","周六","周日","周一","周二","周三","周四","周五","周六","周日"];
+  const now  = new Date();
+  return daily.time.slice(0,7).map((date,i) => {
+    const d   = new Date(date);
+    const wmo = WMO_CODES[daily.weather_code[i]] || ["🌡️","未知"];
+    let dayLabel;
+    if      (i === 0) dayLabel = "今天";
+    else if (i === 1) dayLabel = "明天";
+    else {
+      const weekDays = ["周日","周一","周二","周三","周四","周五","周六"];
+      dayLabel = weekDays[d.getDay()];
+    }
+    const hi = Math.round(daily.temperature_2m_max[i]);
+    const lo = Math.round(daily.temperature_2m_min[i]);
+    return `<div class="forecast-item">
+      <div class="forecast-day">${dayLabel}</div>
+      <div class="forecast-icon">${wmo[0]}</div>
+      <div class="forecast-hi">${hi}°</div>
+      <div class="forecast-lo">${lo}°</div>
+      <div class="forecast-desc">${wmo[1]}</div>
+    </div>`;
+  }).join("");
 }
+
+// ============================================================
+// 主加载
+// ============================================================
+let lastWeatherData = null;
 
 async function loadAll() {
   const grid = document.getElementById("mainGrid");
-  grid.innerHTML = '<div class="loading"><div class="spinner"></div><br>正在获取北京最新数据...</div>';
+  grid.innerHTML = '<div class="loading"><div class="spinner"></div><br>正在获取数据...</div>';
   document.getElementById("lastUpdate").textContent = "数据加载中...";
 
   try {
+    const {lat, lon} = currentCity;
     const [weatherRes, aqRes, pollenRes] = await Promise.all([
-      fetch(`https://api.open-meteo.com/v1/forecast?latitude=${BEIJING.lat}&longitude=${BEIJING.lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,wind_direction_10m,precipitation&wind_speed_unit=ms&timezone=Asia%2FShanghai`),
-      fetch(`https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${BEIJING.lat}&longitude=${BEIJING.lon}&current=pm10,pm2_5,nitrogen_dioxide,ozone,european_aqi&timezone=Asia%2FShanghai`),
+      fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,wind_direction_10m,precipitation&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum&hourly=temperature_2m,precipitation,wind_speed_10m&wind_speed_unit=ms&timezone=Asia%2FShanghai&forecast_days=7`),
+      fetch(`https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${lat}&longitude=${lon}&current=pm10,pm2_5,nitrogen_dioxide,ozone,european_aqi&timezone=Asia%2FShanghai`),
       fetch(`https://devapi.qweather.com/v7/indices/1d?type=15&location=${QWEATHER_LOCATION}&key=${QWEATHER_KEY}`)
     ]);
 
@@ -633,26 +452,27 @@ async function loadAll() {
 
     const c  = weather.current;
     const ac = aq.current;
+    lastWeatherData = weather;
 
-    const wmo   = WMO_CODES[c.weather_code] || ["🌡️", "未知"];
-    const aqi   = ac.european_aqi || 0;
+    const wmo    = WMO_CODES[c.weather_code] || ["🌡️","未知"];
+    const aqi    = ac.european_aqi || 0;
     const aqInfo = getAqiInfo(aqi);
 
-    // 花粉数据：优先用和风天气真实数据，失败则回退估算
     let pollen;
     if (pollenQW.code === '200' && pollenQW.daily && pollenQW.daily.length > 0) {
       pollen = parseQWeatherPollen(pollenQW.daily[0]);
     } else {
       pollen = estimatePollen(c);
-      pollen.isEstimated = true;
     }
 
-    // 风向
     const windDir = ["北","东北","东","东南","南","西南","西","西北","北"];
     const wdLabel = windDir[Math.round((c.wind_direction_10m % 360) / 45)];
 
-    // 出行建议
-    const advices = buildAdvice(c, aqInfo, pollen.overall);
+    // 时段数据
+    const hourly = weather.hourly;
+    const amAdvice  = buildAdvice(c, aqInfo, pollen.overall, hourly, 9);
+    const pmAdvice  = buildAdvice(c, aqInfo, pollen.overall, hourly, 14);
+    const eveAdvice = buildAdvice(c, aqInfo, pollen.overall, hourly, 18);
 
     grid.innerHTML = `
       <!-- 天气卡片 -->
@@ -666,59 +486,26 @@ async function loadAll() {
           </div>
         </div>
         <div class="weather-details">
-          <div class="detail-item">
-            <div class="detail-label">体感温度</div>
-            <div class="detail-value">${Math.round(c.apparent_temperature)}°C</div>
-          </div>
-          <div class="detail-item">
-            <div class="detail-label">相对湿度</div>
-            <div class="detail-value">${c.relative_humidity_2m}%</div>
-          </div>
-          <div class="detail-item">
-            <div class="detail-label">风速</div>
-            <div class="detail-value">${c.wind_speed_10m} m/s</div>
-          </div>
-          <div class="detail-item">
-            <div class="detail-label">风向</div>
-            <div class="detail-value">${wdLabel}风</div>
-          </div>
-          <div class="detail-item">
-            <div class="detail-label">降水量</div>
-            <div class="detail-value">${c.precipitation} mm</div>
-          </div>
+          <div class="detail-item"><div class="detail-label">体感温度</div><div class="detail-value">${Math.round(c.apparent_temperature)}°C</div></div>
+          <div class="detail-item"><div class="detail-label">相对湿度</div><div class="detail-value">${c.relative_humidity_2m}%</div></div>
+          <div class="detail-item"><div class="detail-label">风速</div><div class="detail-value">${c.wind_speed_10m} m/s</div></div>
+          <div class="detail-item"><div class="detail-label">风向</div><div class="detail-value">${wdLabel}风</div></div>
+          <div class="detail-item"><div class="detail-label">降水量</div><div class="detail-value">${c.precipitation} mm</div></div>
         </div>
       </div>
 
-      <!-- PM / 空气质量卡片 -->
+      <!-- 空气质量卡片 -->
       <div class="card">
         <div class="card-title"><span class="card-icon">💨</span> 空气质量 & PM</div>
         <div class="aqi-value ${aqInfo.cls}">${aqi}</div>
         <span class="aqi-label ${aqInfo.cls}" style="background:rgba(255,255,255,0.08)">${aqInfo.label}</span>
-        <div class="aqi-bar-wrap">
-          <div class="aqi-bar ${aqInfo.bgCls}" style="width:${Math.min(aqInfo.bar, 100)}%"></div>
-        </div>
+        <div class="aqi-bar-wrap"><div class="aqi-bar ${aqInfo.bgCls}" style="width:${Math.min(aqInfo.bar,100)}%"></div></div>
         <div style="font-size:0.8em;color:#718096;margin-bottom:14px">${aqInfo.tip}</div>
         <div class="pm-items">
-          <div class="pm-item">
-            <div class="pm-name">PM2.5</div>
-            <div class="pm-val">${ac.pm2_5 !== null ? Math.round(ac.pm2_5) : '--'}</div>
-            <div class="pm-unit">μg/m³</div>
-          </div>
-          <div class="pm-item">
-            <div class="pm-name">PM10</div>
-            <div class="pm-val">${ac.pm10 !== null ? Math.round(ac.pm10) : '--'}</div>
-            <div class="pm-unit">μg/m³</div>
-          </div>
-          <div class="pm-item">
-            <div class="pm-name">O₃ 臭氧</div>
-            <div class="pm-val">${(ac.ozone !== null && ac.ozone !== undefined) ? Math.round(ac.ozone) : '--'}</div>
-            <div class="pm-unit">μg/m³</div>
-          </div>
-          <div class="pm-item">
-            <div class="pm-name">NO₂</div>
-            <div class="pm-val">${(ac.nitrogen_dioxide !== null && ac.nitrogen_dioxide !== undefined) ? Math.round(ac.nitrogen_dioxide) : '--'}</div>
-            <div class="pm-unit">μg/m³</div>
-          </div>
+          <div class="pm-item"><div class="pm-name">PM2.5</div><div class="pm-val">${ac.pm2_5!==null?Math.round(ac.pm2_5):'--'}</div><div class="pm-unit">μg/m³</div></div>
+          <div class="pm-item"><div class="pm-name">PM10</div><div class="pm-val">${ac.pm10!==null?Math.round(ac.pm10):'--'}</div><div class="pm-unit">μg/m³</div></div>
+          <div class="pm-item"><div class="pm-name">O₃ 臭氧</div><div class="pm-val">${ac.ozone!=null?Math.round(ac.ozone):'--'}</div><div class="pm-unit">μg/m³</div></div>
+          <div class="pm-item"><div class="pm-name">NO₂</div><div class="pm-val">${ac.nitrogen_dioxide!=null?Math.round(ac.nitrogen_dioxide):'--'}</div><div class="pm-unit">μg/m³</div></div>
         </div>
       </div>
 
@@ -726,199 +513,150 @@ async function loadAll() {
       <div class="card">
         <div class="card-title"><span class="card-icon">🌸</span> 花粉浓度</div>
         <div class="pollen-level ${pollen.overall.cls}">${pollen.overall.label}</div>
-        <div class="pollen-desc" style="margin-bottom:6px">${pollen.advice}</div>
-        <div style="font-size:0.78em;color:#718096;margin-bottom:14px">🌿 ${pollen.dominantType}</div>
+        <div class="pollen-desc">${pollen.advice}</div>
+        <div style="font-size:0.78em;color:#718096;margin-bottom:14px">${pollen.dominantType}</div>
         <div class="pollen-types">
           ${pollen.isEstimated ? `
             ${renderPollenBar("🌲 树木花粉", pollen.tree)}
             ${renderPollenBar("🌿 草本花粉", pollen.grass)}
             ${renderPollenBar("🌱 艾草花粉", pollen.mugwort)}
-          ` : `
-            ${renderPollenBar("🌸 综合花粉", pollen.overall)}
-          `}
+          ` : renderPollenBar("🌸 综合花粉", pollen.overall)}
         </div>
         <div style="margin-top:12px;font-size:0.72em;color:#4a5568;text-align:right">
           ${pollen.isEstimated ? '📊 基于气象数据智能估算' : '✅ 数据来源：和风天气'}
         </div>
       </div>
 
-      <!-- 出行建议 -->
+      <!-- 7天预报 -->
+      <div class="card forecast-card">
+        <div class="card-title"><span class="card-icon">📅</span> 未来7天预报</div>
+        <div class="forecast-list">${renderForecast(weather.daily)}</div>
+      </div>
+
+      <!-- 出行建议（时段）-->
       <div class="card advice-card">
         <div class="card-title"><span class="card-icon">🚗</span> 今日出行建议</div>
-        <div class="advice-list">
-          ${advices}
+        <div class="advice-tabs">
+          <button class="advice-tab active" onclick="switchTab(this,'tab-all')">🌅 全天</button>
+          <button class="advice-tab" onclick="switchTab(this,'tab-am')">☀️ 上午 (9:00)</button>
+          <button class="advice-tab" onclick="switchTab(this,'tab-pm')">🌤️ 下午 (14:00)</button>
+          <button class="advice-tab" onclick="switchTab(this,'tab-eve')">🌆 傍晚 (18:00)</button>
+        </div>
+        <div class="advice-panel active" id="tab-all">
+          <div class="advice-list">${buildAdvice(c, aqInfo, pollen.overall, null, undefined)}</div>
+        </div>
+        <div class="advice-panel" id="tab-am">
+          <div class="advice-list">${amAdvice}</div>
+        </div>
+        <div class="advice-panel" id="tab-pm">
+          <div class="advice-list">${pmAdvice}</div>
+        </div>
+        <div class="advice-panel" id="tab-eve">
+          <div class="advice-list">${eveAdvice}</div>
         </div>
       </div>
     `;
 
-    const now = new Date();
     document.getElementById("lastUpdate").textContent =
-      `最后更新：${now.toLocaleString("zh-CN", { hour12: false })}`;
+      `最后更新：${new Date().toLocaleString("zh-CN",{hour12:false})}`;
 
   } catch(e) {
-    grid.innerHTML = `
-      <div class="card" style="grid-column:1/-1">
-        <div class="card-title">⚠️ 数据加载失败</div>
-        <div class="error-tip">
-          无法获取数据，可能原因：网络连接问题或API暂时不可用。<br>
-          请检查网络后点击"刷新数据"重试。<br><br>
-          错误详情：${e.message}
-        </div>
-      </div>
-    `;
+    grid.innerHTML = `<div class="card" style="grid-column:1/-1">
+      <div class="card-title">⚠️ 数据加载失败</div>
+      <div class="error-tip">无法获取数据，可能原因：网络连接问题或 API 暂时不可用。<br>请检查网络后点击"刷新数据"重试。<br><br>错误详情：${e.message}</div>
+    </div>`;
     document.getElementById("lastUpdate").textContent = "数据加载失败";
     console.error(e);
   }
 }
 
-function renderPollenBar(name, levelObj) {
-  const bgMap = { good: 'bg-good', moderate: 'bg-moderate', unhealthy: 'bg-unhealthy', 'very-bad': 'bg-very-bad' };
-  const bg = bgMap[levelObj.cls] || 'bg-good';
-  return `
-    <div class="pollen-row">
-      <div class="pollen-name">${name}</div>
-      <div class="pollen-bar-wrap">
-        <div class="pollen-bar ${bg}" style="width:${levelObj.pct}%"></div>
-      </div>
-      <div class="pollen-val-label ${levelObj.cls}">${levelObj.label}</div>
-    </div>
-  `;
-}
-
-function buildAdvice(c, aqInfo, pollenInfo) {
-  const items = [];
-
-  // 天气建议
-  const temp = c.temperature_2m;
-  if (temp < 5) {
-    items.push({ e: "🧥", title: "注意保暖", text: `气温${Math.round(temp)}°C，需穿厚外套` });
-  } else if (temp < 15) {
-    items.push({ e: "🧣", title: "适当添衣", text: `气温${Math.round(temp)}°C，建议穿外套` });
-  } else if (temp > 30) {
-    items.push({ e: "☀️", title: "注意防晒", text: `气温${Math.round(temp)}°C，高温出行注意防暑` });
-  } else {
-    items.push({ e: "😊", title: "气温舒适", text: `气温${Math.round(temp)}°C，外出体感良好` });
-  }
-
-  // 雨雪建议
-  if (c.precipitation > 0) {
-    items.push({ e: "☂️", title: "雨雪出行", text: "当前有降水，建议携带雨具" });
-  }
-
-  // 空气质量建议
-  if (aqInfo.label === "优" || aqInfo.label === "良") {
-    items.push({ e: "🌬️", title: "空气良好", text: "今日空气质量不错，适合户外活动" });
-  } else if (aqInfo.label === "轻度" || aqInfo.label === "中度") {
-    items.push({ e: "😷", title: "空气一般", text: "建议佩戴口罩，减少长时间户外活动" });
-  } else {
-    items.push({ e: "🏠", title: "空气较差", text: "空气污染严重，建议尽量减少外出" });
-  }
-
-  // 花粉建议
-  if (pollenInfo.cls === "good") {
-    items.push({ e: "🌸", title: "花粉安全", text: "花粉浓度低，过敏人群可正常出行" });
-  } else if (pollenInfo.cls === "moderate") {
-    items.push({ e: "🤧", title: "花粉注意", text: "花粉浓度中等，过敏人群建议佩戴口罩" });
-  } else {
-    items.push({ e: "🚫", title: "花粉警报", text: "花粉浓度高，过敏人群建议减少外出" });
-  }
-
-  // 风速建议
-  if (c.wind_speed_10m > 10) {
-    items.push({ e: "💨", title: "大风预警", text: `风速${c.wind_speed_10m}m/s，出行注意安全` });
-  }
-
-  return items.map(i => `
-    <div class="advice-item">
-      <div class="advice-emoji">${i.e}</div>
-      <div class="advice-text"><strong>${i.title}</strong>${i.text}</div>
-    </div>
-  `).join("");
+// ============================================================
+// 刷新按钮（带 loading 状态）
+// ============================================================
+async function handleRefresh() {
+  const btn = document.getElementById("refreshBtn");
+  btn.classList.add("loading");
+  btn.disabled = true;
+  await loadAll();
+  btn.classList.remove("loading");
+  btn.disabled = false;
 }
 
 // ============================================================
-// 每日资讯模块
+// 时段 Tab 切换
 // ============================================================
+function switchTab(el, panelId) {
+  document.querySelectorAll(".advice-tab").forEach(t => t.classList.remove("active"));
+  document.querySelectorAll(".advice-panel").forEach(p => p.classList.remove("active"));
+  el.classList.add("active");
+  document.getElementById(panelId).classList.add("active");
+}
 
+// ============================================================
+// 资讯折叠
+// ============================================================
+let newsExpanded = true;
+function toggleNews() {
+  const box = document.getElementById("newsCollapsible");
+  const btn = document.getElementById("newsToggleBtn");
+  newsExpanded = !newsExpanded;
+  box.classList.toggle("collapsed", !newsExpanded);
+  btn.textContent = newsExpanded ? "▲ 收起资讯" : "▼ 展开资讯";
+}
+
+// ============================================================
+// 每日资讯
+// ============================================================
 async function loadNews() {
   const newsGrid = document.getElementById("newsGrid");
   const newsDate = document.getElementById("newsDate");
-
   try {
     const resp = await fetch(`news.json?t=${Date.now()}`);
     if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
     const data = await resp.json();
-
     const sections = data.sections || [];
-
     if (sections.length === 0) {
-      // 没有解析到结构化数据，降级显示原文
       newsGrid.innerHTML = renderNewsRaw(data.content);
     } else {
       newsGrid.innerHTML = sections.map(s => renderNewsCard(s)).join('');
     }
-
-    if (data.date) {
-      newsDate.textContent = `📅 资讯日期：${data.date}`;
-    }
-  } catch (e) {
+    if (data.date) newsDate.textContent = `📅 资讯日期：${data.date}`;
+  } catch(e) {
     newsGrid.innerHTML = `<div class="news-error">⚠️ 资讯暂未加载（${e.message}）<br><small>请确认已运行 extract_news.py 生成 news.json</small></div>`;
     newsDate.textContent = '';
   }
 }
 
 function renderNewsCard(section) {
-  const colorMap = {
-    '🤖': 'rgba(116,185,255,0.4)',
-    '💰': 'rgba(253,203,110,0.4)',
-    '🌍': 'rgba(85,239,196,0.4)',
-  };
-  const borderColor = colorMap[section.emoji] || 'rgba(116,185,255,0.4)';
-
-  const itemsHtml = (section.items || []).map(item => `
-    <div class="news-item" style="border-left-color:${borderColor}">
-      <div class="news-item-title">${escHtml(item.title)}</div>
-      <div class="news-item-desc">${escHtml(item.desc)}</div>
+  const colorMap = {'🤖':'rgba(116,185,255,0.4)','💰':'rgba(253,203,110,0.4)','🌍':'rgba(85,239,196,0.4)'};
+  const bc = colorMap[section.emoji] || 'rgba(116,185,255,0.4)';
+  return `<div class="news-card">
+    <div class="news-card-header"><span>${section.emoji}</span><span>${escHtml(section.title)}</span></div>
+    <div class="news-items">
+      ${(section.items||[]).map(item=>`<div class="news-item" style="border-left-color:${bc}">
+        <div class="news-item-title">${escHtml(item.title)}</div>
+        <div class="news-item-desc">${escHtml(item.desc)}</div>
+      </div>`).join('') || '<div style="color:#718096;font-size:0.85em">暂无内容</div>'}
     </div>
-  `).join('');
-
-  return `
-    <div class="news-card">
-      <div class="news-card-header">
-        <span>${section.emoji}</span>
-        <span>${escHtml(section.title)}</span>
-      </div>
-      <div class="news-items">
-        ${itemsHtml || '<div style="color:#718096;font-size:0.85em">暂无内容</div>'}
-      </div>
-    </div>
-  `;
-}
-
-function renderNewsRaw(content) {
-  // 降级：将 Markdown 文本简单渲染为 HTML
-  const escaped = escHtml(content)
-    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-    .replace(/\n/g, '<br>');
-  return `<div class="news-card" style="grid-column:1/-1">
-    <div class="news-card-header">📰 每日资讯</div>
-    <div style="font-size:0.85em;color:#cbd5e0;line-height:1.8">${escaped}</div>
   </div>`;
 }
 
-function escHtml(str) {
-  return (str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+function renderNewsRaw(content) {
+  const e = escHtml(content).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>');
+  return `<div class="news-card" style="grid-column:1/-1"><div class="news-card-header">📰 每日资讯</div><div style="font-size:0.85em;color:#cbd5e0;line-height:1.8">${e}</div></div>`;
 }
 
-// 自动加载
+function escHtml(s) {
+  return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ============================================================
+// 启动
+// ============================================================
 loadAll();
 loadNews();
-
-// 每30分钟自动刷新
 setInterval(loadAll, 30 * 60 * 1000);
-// 资讯每小时刷新一次（主要靠 extract_news.py 定期更新）
 setInterval(loadNews, 60 * 60 * 1000);
 </script>
-
 </body>
 </html>
