@@ -1,68 +1,64 @@
 {
-  "date": "2026-04-04 08:19",
+  "ts": 1775181127901,
+  "date": "2026-04-03 09:52",
+  "content": "资讯已更新。以下是今日推送内容：\n\n---\n\n🤖 **AI资讯**（3条）\n\n1. **阿里发布国产最强编程模型 Qwen3.6-Plus** - 4月2日，阿里千问正式发布 Qwen3.6-Plus，支持100万上下文、自主任务规划执行，编程能力直逼 Claude 系列，被业内称为当前国产最强编程模型。\n\n2. **阿里+苹果中国版\"苹果智能\"进展** - 阿里通义千问团队开源 Qwen3 全系列32款 MLX 量化模型，专为苹果芯片优化。自2月阿里确认与苹果合作中国区 Apple Intelligence 后，正加速推进落地，但目前仍受美国政府审查。\n\n3. **OpenAI完成史上最大融资：1220亿美元，估值8520亿** - 美国时间3月31日，OpenAI 宣布完成硅谷有史以来规模最大的一轮私募融资，总额达1220亿美元，融资后估值达8520亿美元，投资方包括亚马逊、英伟达等科技巨头。\n\n---\n\n💰 **金融资讯**（3条）\n\n1. **特朗普宣布全面\"对等关税\"，美股期货大跳水** - 北京时间4月3日凌晨，特朗普在白宫宣布对几乎所有进入美国商品征收至少10%关税，对欧盟20%、中国更高。消息公布后，标普500期货跌超3.5%，纳指期货跌超4.5%，道指跌逾2.5%。\n\n2. **黄金狂飙创历史新高，突破3160美元/盎司** - 受特朗普对等关税超预期影响，现货黄金4月3日短暂突破3160美元/盎司，续刷历史新高。机构预计黄金将持续强势，但短期需警惕大幅波动。\n\n3. **4月3日多地金融市场休市** - 清明节与西方复活节假期重叠，欧美股市、港股、台股、澳股等今日休市；CME旗下贵金属及美油期货全天不交易，外汇、美股期货提前收市。\n\n---\n\n🌍 **国际局势**（3条）\n\n1. **美伊战争出现降温信号** - 特朗普表示美国将在2-3周内结束对伊朗军事行动，称已基本达成目标；伊朗总统也表态若不再遭袭击愿停止战斗。双方均释放结束战争信号，局势出现重大转向。\n\n2. **美以伊冲突引发全球能源与粮食风险链** - 自2月28日美以对伊发动军事行动以来，伊朗最高领袖哈梅内伊遇害，油价涨至2022年以来最高，多国取消燃油进口关税应对冲击，世界银行与IMF上调全球增长预期同时警示地缘风险。\n\n3. **反特朗普大游行持续发酵，美国内政局势持续动荡** - 伊朗将剩余高浓缩铀转移至秘密地点，美国情报部门持续跟踪；与此同时，美国国内反特朗普大游行仍在持续，引发各方高度关注。\n\n---\n\n📌 天气网站资讯数据已同步更新至 GitHub Pages ✅",
   "sections": [
     {
-      "id": "ai",
-      "title": "🤖 AI资讯",
+      "emoji": "🤖",
+      "title": "AI资讯",
       "items": [
         {
-          "title": "Anthropic bans third-party AI clients from Claude subscriptions",
-          "summary": "Starting April 4th, Claude subscriptions will no longer cover third-party access from tools like OpenClaw. Users must pay extra for API-based third-party integrations.",
-          "source": "The Verge"
+          "title": "阿里发布国产最强编程模型 Qwen3.6-Plus",
+          "desc": "4月2日，阿里千问正式发布 Qwen3.6-Plus，支持100万上下文、自主任务规划执行，编程能力直逼 Claude 系列，被业内称为当前国产最强编程模型。"
         },
         {
-          "title": "AI training data company Mercor hit by security breach",
-          "summary": "Meta has paused work with AI training data firm Mercor after a data breach potentially exposed AI industry secrets. OpenAI is also investigating the security incident.",
-          "source": "The Verge"
+          "title": "阿里+苹果中国版\"苹果智能\"进展",
+          "desc": "阿里通义千问团队开源 Qwen3 全系列32款 MLX 量化模型，专为苹果芯片优化。自2月阿里确认与苹果合作中国区 Apple Intelligence 后，正加速推进落地，但目前仍受美国政府审查。"
         },
         {
-          "title": "Elon Musk demands SpaceX IPO advisers subscribe to Grok",
-          "summary": "Musk is reportedly requiring banks, law firms, and auditors working on the SpaceX IPO to purchase subscriptions to his Grok AI chatbot, now technically under the SpaceX umbrella.",
-          "source": "The Verge"
+          "title": "OpenAI完成史上最大融资：1220亿美元，估值8520亿",
+          "desc": "美国时间3月31日，OpenAI 宣布完成硅谷有史以来规模最大的一轮私募融资，总额达1220亿美元，融资后估值达8520亿美元，投资方包括亚马逊、英伟达等科技巨头。"
         }
-      ]
+      ],
+      "raw": "🤖 **AI资讯**（3条）\n\n1. **阿里发布国产最强编程模型 Qwen3.6-Plus** - 4月2日，阿里千问正式发布 Qwen3.6-Plus，支持100万上下文、自主任务规划执行，编程能力直逼 Claude 系列，被业内称为当前国产最强编程模型。\n\n2. **阿里+苹果中国版\"苹果智能\"进展** - 阿里通义千问团队开源 Qwen3 全系列32款 MLX 量化模型，专为苹果芯片优化。自2月阿里确认与苹果合作中国区 Apple Intelligence 后，正加速推进落地，但目前仍受美国政府审查。\n\n3. **OpenAI完成史上最大融资：1220亿美元，估值8520亿** - 美国时间3月31日，OpenAI 宣布完成硅谷有史以来规模最大的一轮私募融资，总额达1220亿美元，融资后估值达8520亿美元，投资方包括亚马逊、英伟达等科技巨头。\n\n---"
     },
     {
-      "id": "finance",
-      "title": "💰 金融资讯",
+      "emoji": "💰",
+      "title": "金融资讯",
       "items": [
         {
-          "title": "US employers added 178,000 jobs in March, beating expectations",
-          "summary": "American employers added a surprisingly strong 178,000 new jobs last month, rebounding from a dismal February. The unemployment rate dipped to 4.3%.",
-          "source": "AP News"
+          "title": "特朗普宣布全面\"对等关税\"，美股期货大跳水",
+          "desc": "北京时间4月3日凌晨，特朗普在白宫宣布对几乎所有进入美国商品征收至少10%关税，对欧盟20%、中国更高。消息公布后，标普500期货跌超3.5%，纳指期货跌超4.5%，道指跌逾2.5%。"
         },
         {
-          "title": "Trump unveils 100% tariff on some patented drugs on 'Liberation Day' anniversary",
-          "summary": "The Trump administration announced sweeping 100% tariffs on certain patented pharmaceuticals as part of ongoing trade policy moves marking the anniversary of 'Liberation Day'.",
-          "source": "AP News"
+          "title": "黄金狂飙创历史新高，突破3160美元/盎司",
+          "desc": "受特朗普对等关税超预期影响，现货黄金4月3日短暂突破3160美元/盎司，续刷历史新高。机构预计黄金将持续强势，但短期需警惕大幅波动。"
         },
         {
-          "title": "Oil tops $110 a barrel as Iran war rattles global markets",
-          "summary": "Stocks recovered from early losses to close with a weekly gain, but US oil surged past $110 a barrel amid deepening concerns over the Iran conflict's impact on global energy supply.",
-          "source": "AP News"
+          "title": "4月3日多地金融市场休市",
+          "desc": "清明节与西方复活节假期重叠，欧美股市、港股、台股、澳股等今日休市；CME旗下贵金属及美油期货全天不交易，外汇、美股期货提前收市。"
         }
-      ]
+      ],
+      "raw": "💰 **金融资讯**（3条）\n\n1. **特朗普宣布全面\"对等关税\"，美股期货大跳水** - 北京时间4月3日凌晨，特朗普在白宫宣布对几乎所有进入美国商品征收至少10%关税，对欧盟20%、中国更高。消息公布后，标普500期货跌超3.5%，纳指期货跌超4.5%，道指跌逾2.5%。\n\n2. **黄金狂飙创历史新高，突破3160美元/盎司** - 受特朗普对等关税超预期影响，现货黄金4月3日短暂突破3160美元/盎司，续刷历史新高。机构预计黄金将持续强势，但短期需警惕大幅波动。\n\n3. **4月3日多地金融市场休市** - 清明节与西方复活节假期重叠，欧美股市、港股、台股、澳股等今日休市；CME旗下贵金属及美油期货全天不交易，外汇、美股期货提前收市。\n\n---"
     },
     {
-      "id": "world",
-      "title": "🌍 国际局势",
+      "emoji": "🌍",
+      "title": "国际局势",
       "items": [
         {
-          "title": "2 US aircraft shot down as war in Iran escalates",
-          "summary": "Two US military planes were shot down in separate incidents on Friday, including a fighter jet hit by Iran's air defenses. At least one crew member is reported missing.",
-          "source": "AP News"
+          "title": "美伊战争出现降温信号",
+          "desc": "特朗普表示美国将在2-3周内结束对伊朗军事行动，称已基本达成目标；伊朗总统也表态若不再遭袭击愿停止战斗。双方均释放结束战争信号，局势出现重大转向。"
         },
         {
-          "title": "UK gathers 40+ countries to press Iran to reopen Strait of Hormuz",
-          "summary": "Britain has assembled a coalition of more than 40 nations to pressure Iran to reopen the Strait of Hormuz, a critical global oil shipping lane that has been disrupted by the ongoing conflict.",
-          "source": "AP News"
+          "title": "美以伊冲突引发全球能源与粮食风险链",
+          "desc": "自2月28日美以对伊发动军事行动以来，伊朗最高领袖哈梅内伊遇害，油价涨至2022年以来最高，多国取消燃油进口关税应对冲击，世界银行与IMF上调全球增长预期同时警示地缘风险。"
         },
         {
-          "title": "Russian strikes on Ukraine kill 8 as Kyiv holds door open for Easter truce",
-          "summary": "Russia launched fresh aerial attacks on Ukraine killing at least 8 people, even as Kyiv signaled openness to an Easter ceasefire and an Easter prisoner exchange was being planned.",
-          "source": "AP News"
+          "title": "反特朗普大游行持续发酵，美国内政局势持续动荡",
+          "desc": "伊朗将剩余高浓缩铀转移至秘密地点，美国情报部门持续跟踪；与此同时，美国国内反特朗普大游行仍在持续，引发各方高度关注。"
         }
-      ]
+      ],
+      "raw": "🌍 **国际局势**（3条）\n\n1. **美伊战争出现降温信号** - 特朗普表示美国将在2-3周内结束对伊朗军事行动，称已基本达成目标；伊朗总统也表态若不再遭袭击愿停止战斗。双方均释放结束战争信号，局势出现重大转向。\n\n2. **美以伊冲突引发全球能源与粮食风险链** - 自2月28日美以对伊发动军事行动以来，伊朗最高领袖哈梅内伊遇害，油价涨至2022年以来最高，多国取消燃油进口关税应对冲击，世界银行与IMF上调全球增长预期同时警示地缘风险。\n\n3. **反特朗普大游行持续发酵，美国内政局势持续动荡** - 伊朗将剩余高浓缩铀转移至秘密地点，美国情报部门持续跟踪；与此同时，美国国内反特朗普大游行仍在持续，引发各方高度关注。\n\n---\n\n📌 天气网站资讯数据已同步更新至 GitHub Pages ✅"
     }
   ]
 }
