@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🦞 天赐工作台</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0f1117;
+      color: #e2e8f0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* ── Header ── */
+    header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px;
+      background: #1a1d27;
+      border-bottom: 1px solid #2d3148;
+      flex-shrink: 0;
+    }
+    header .logo { font-size: 22px; }
+    header h1 { font-size: 16px; font-weight: 600; color: #a78bfa; letter-spacing: 0.5px; }
+    header .subtitle { font-size: 12px; color: #64748b; margin-left: auto; }
+
+    /* ── Top: Chat ── */
+    #chat-panel {
+      display: flex;
+      flex-direction: column;
+      height: 42vh;
+      flex-shrink: 0;
+      border-bottom: 2px solid #2d3148;
+    }
+
+    #chat-panel .panel-title {
+      padding: 6px 14px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #7c85a2;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      background: #151821;
+      border-bottom: 1px solid #2d3148;
+      flex-shrink: 0;
+    }
+
+    #messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 12px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: #0f1117;
+    }
+
+    #messages::-webkit-scrollbar { width: 4px; }
+    #messages::-webkit-scrollbar-track { background: transparent; }
+    #messages::-webkit-scrollbar-thumb { background: #2d3148; border-radius: 2px; }
+
+    .msg {
+      display: flex;
+      gap: 8px;
+      max-width: 90%;
+      animation: fadeIn 0.2s ease;
+    }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; } }
+
+    .msg.user { align-self: flex-end; flex-direction: row-reverse; }
+    .msg.assistant { align-self: flex-start; }
+
+    .msg .avatar {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .msg.user .avatar { background: #4f46e5; }
+    .msg.assistant .avatar { background: #1e293b; }
+
+    .msg .bubble {
+      padding: 8px 12px;
+      border-radius: 12px;
+      font-size: 13.5px;
+      line-height: 1.55;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .msg.user .bubble {
+      background: #4f46e5;
+      color: #fff;
+      border-bottom-right-radius: 4px;
+    }
+    .msg.assistant .bubble {
+      background: #1e2535;
+      color: #cbd5e1;
+      border-bottom-left-radius: 4px;
+      border: 1px solid #2d3148;
+    }
+
+    .msg.system .bubble {
+      background: transparent;
+      color: #475569;
+      font-size: 12px;
+      font-style: italic;
+      border: none;
+      padding: 2px 0;
+      align-self: center;
+    }
+    .msg.system { align-self: center; }
+
+    .typing-dots span {
+      display: inline-block;
+      width: 6px; height: 6px;
+      background: #7c85a2;
+      border-radius: 50%;
+      margin: 0 2px;
+      animation: bounce 1.2s infinite;
+    }
+    .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes bounce {
+      0%, 60%, 100% { transform: translateY(0); }
+      30% { transform: translateY(-5px); }
+    }
+
+    #input-area {
+      display: flex;
+      gap: 8px;
+      padding: 10px 14px;
+      background: #151821;
+      border-top: 1px solid #2d3148;
+      flex-shrink: 0;
+    }
+
+    #input-area textarea {
+      flex: 1;
+      background: #1e2535;
+      border: 1px solid #2d3148;
+      border-radius: 8px;
+      color: #e2e8f0;
+      font-size: 13.5px;
+      padding: 8px 12px;
+      resize: none;
+      outline: none;
+      font-family: inherit;
+      line-height: 1.5;
+      max-height: 100px;
+      transition: border-color 0.2s;
+    }
+    #input-area textarea:focus { border-color: #6366f1; }
+    #input-area textarea::placeholder { color: #475569; }
+
+    #send-btn {
+      background: #4f46e5;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 0 18px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s;
+      white-space: nowrap;
+      align-self: flex-end;
+      height: 38px;
+    }
+    #send-btn:hover { background: #6366f1; }
+    #send-btn:disabled { background: #2d3148; color: #475569; cursor: not-allowed; }
+
+    /* ── Auth overlay ── */
+    #auth-overlay {
+      display: none;
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(15,17,23,0.92);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 12px;
+    }
+    #auth-overlay.show { display: flex; }
+    #auth-overlay p { color: #94a3b8; font-size: 14px; }
+    #auth-overlay input {
+      background: #1e2535;
+      border: 1px solid #4f46e5;
+      border-radius: 8px;
+      color: #e2e8f0;
+      font-size: 14px;
+      padding: 10px 16px;
+      width: 320px;
+      outline: none;
+    }
+    #auth-overlay button {
+      background: #4f46e5;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 28px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    /* ── Bottom: Browser windows ── */
+    #browser-panel {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+
+    #browser-tabs {
+      display: flex;
+      background: #151821;
+      border-bottom: 1px solid #2d3148;
+      flex-shrink: 0;
+      padding: 0 8px;
+    }
+
+    .tab-btn {
+      padding: 8px 16px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #64748b;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      border-bottom: 2px solid transparent;
+      transition: all 0.15s;
+      letter-spacing: 0.3px;
+    }
+    .tab-btn:hover { color: #a78bfa; }
+    .tab-btn.active { color: #a78bfa; border-bottom-color: #a78bfa; }
+
+    #browser-content {
+      flex: 1;
+      position: relative;
+      min-height: 0;
+    }
+
+    .browser-pane {
+      display: none;
+      flex-direction: column;
+      height: 100%;
+    }
+    .browser-pane.active { display: flex; }
+
+    .url-bar {
+      display: flex;
+      gap: 6px;
+      padding: 6px 10px;
+      background: #151821;
+      border-bottom: 1px solid #1e2535;
+      flex-shrink: 0;
+    }
+    .url-bar input {
+      flex: 1;
+      background: #1e2535;
+      border: 1px solid #2d3148;
+      border-radius: 6px;
+      color: #cbd5e1;
+      font-size: 12px;
+      padding: 5px 10px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .url-bar input:focus { border-color: #6366f1; }
+    .url-bar button {
+      background: #2d3148;
+      color: #94a3b8;
+      border: none;
+      border-radius: 6px;
+      padding: 5px 12px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .url-bar button:hover { background: #4f46e5; color: #fff; }
+
+    .iframe-wrap {
+      flex: 1;
+      position: relative;
+      min-height: 0;
+    }
+    .iframe-wrap iframe {
+      width: 100%; height: 100%;
+      border: none;
+      background: #fff;
+    }
+
+    /* Iframe blocked fallback */
+    .iframe-fallback {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      gap: 14px;
+      color: #475569;
+    }
+    .iframe-fallback .icon { font-size: 40px; }
+    .iframe-fallback p { font-size: 14px; max-width: 280px; text-align: center; line-height: 1.6; }
+    .iframe-fallback a {
+      display: inline-block;
+      background: #4f46e5;
+      color: #fff;
+      text-decoration: none;
+      padding: 9px 22px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: background 0.15s;
+    }
+    .iframe-fallback a:hover { background: #6366f1; }
+
+    /* Settings modal */
+    #settings-btn {
+      margin-left: auto;
+      background: none;
+      border: 1px solid #2d3148;
+      border-radius: 6px;
+      color: #64748b;
+      font-size: 12px;
+      padding: 4px 10px;
+      cursor: pointer;
+    }
+    #settings-btn:hover { color: #a78bfa; border-color: #a78bfa; }
+  </style>
+</head>
+<body>
+
+<!-- Auth overlay -->
+<div id="auth-overlay">
+  <p style="font-size:20px">🦞 天赐工作台</p>
+  <p>请输入 OpenClaw Gateway Token 以连接</p>
+  <input type="password" id="token-input" placeholder="粘贴你的 gateway token..." />
+  <button onclick="saveToken()">连接</button>
+  <p style="font-size:12px; color:#334155">Token 仅存储在本页面的 localStorage 中</p>
+</div>
+
+<header>
+  <span class="logo">🦞</span>
+  <h1>天赐工作台</h1>
+  <button id="settings-btn" onclick="clearToken()">⚙ 重设 Token</button>
+</header>
+
+<!-- Chat Panel (top) -->
+<div id="chat-panel">
+  <div class="panel-title">💬 CatClaw 对话</div>
+  <div id="messages">
+    <div class="msg system"><div class="bubble">工作台已就绪，开始对话吧 ✨</div></div>
+  </div>
+  <div id="input-area">
+    <textarea id="msg-input" rows="1" placeholder="输入消息，Shift+Enter 换行，Enter 发送..." maxlength="4000"></textarea>
+    <button id="send-btn" onclick="sendMessage()">发送</button>
+  </div>
+</div>
+
+<!-- Browser Panel (bottom) -->
+<div id="browser-panel">
+  <div id="browser-tabs">
+    <button class="tab-btn active" onclick="switchTab(0, this)">📋 ONES</button>
+    <button class="tab-btn" onclick="switchTab(1, this)">🐘 大象</button>
+    <button class="tab-btn" onclick="switchTab(2, this)">📚 学城</button>
+  </div>
+  <div id="browser-content">
+
+    <!-- Pane 0: ONES -->
+    <div class="browser-pane active" id="pane-0">
+      <div class="url-bar">
+        <input type="text" id="url-0" value="https://ones.sankuai.com" placeholder="输入网址..." />
+        <button onclick="loadUrl(0)">前往</button>
+        <button onclick="openExternal(0)">↗ 新标签</button>
+      </div>
+      <div class="iframe-wrap" id="wrap-0">
+        <iframe id="frame-0" src="about:blank" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="iframe-fallback" id="fallback-0">
+          <div class="icon">🔒</div>
+          <p>该网站禁止被嵌入显示（安全策略限制），点击下方按钮在新标签页打开</p>
+          <a href="#" id="fallback-link-0" target="_blank">在新标签页打开 ONES →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pane 1: 大象 -->
+    <div class="browser-pane" id="pane-1">
+      <div class="url-bar">
+        <input type="text" id="url-1" value="https://im.sankuai.com" placeholder="输入网址..." />
+        <button onclick="loadUrl(1)">前往</button>
+        <button onclick="openExternal(1)">↗ 新标签</button>
+      </div>
+      <div class="iframe-wrap" id="wrap-1">
+        <iframe id="frame-1" src="about:blank" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="iframe-fallback" id="fallback-1">
+          <div class="icon">🔒</div>
+          <p>该网站禁止被嵌入显示（安全策略限制），点击下方按钮在新标签页打开</p>
+          <a href="#" id="fallback-link-1" target="_blank">在新标签页打开 大象 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pane 2: 学城 -->
+    <div class="browser-pane" id="pane-2">
+      <div class="url-bar">
+        <input type="text" id="url-2" value="https://km.sankuai.com" placeholder="输入网址..." />
+        <button onclick="loadUrl(2)">前往</button>
+        <button onclick="openExternal(2)">↗ 新标签</button>
+      </div>
+      <div class="iframe-wrap" id="wrap-2">
+        <iframe id="frame-2" src="about:blank" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="iframe-fallback" id="fallback-2">
+          <div class="icon">🔒</div>
+          <p>该网站禁止被嵌入显示（安全策略限制），点击下方按钮在新标签页打开</p>
+          <a href="#" id="fallback-link-2" target="_blank">在新标签页打开 学城 →</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// ── Config ──────────────────────────────────────────────────────────────
+const GATEWAY_BASE = window.location.protocol + '//' + window.location.hostname + ':18789';
+const CHAT_ENDPOINT = GATEWAY_BASE + '/v1/chat/completions';
+
+let gatewayToken = '';
+let sessionId = 'workbench-' + Math.random().toString(36).slice(2, 10);
+let isWaiting = false;
+let typingEl = null;
+
+// ── Auth ──────────────────────────────────────────────────────────────
+function init() {
+  gatewayToken = localStorage.getItem('wb_token') || '';
+  if (!gatewayToken) {
+    document.getElementById('auth-overlay').classList.add('show');
+  } else {
+    startChat();
+  }
+  // Load iframes
+  setTimeout(() => {
+    loadUrl(0);
+    loadUrl(1);
+    loadUrl(2);
+  }, 500);
+}
+
+function saveToken() {
+  const t = document.getElementById('token-input').value.trim();
+  if (!t) return;
+  localStorage.setItem('wb_token', t);
+  gatewayToken = t;
+  document.getElementById('auth-overlay').classList.remove('show');
+  startChat();
+}
+
+function clearToken() {
+  localStorage.removeItem('wb_token');
+  location.reload();
+}
+
+function startChat() {
+  addMsg('assistant', '你好天赐老师 👋 工作台已连接，有什么我可以帮你的？');
+}
+
+// ── Chat ──────────────────────────────────────────────────────────────
+const messagesEl = document.getElementById('messages');
+const inputEl = document.getElementById('msg-input');
+const sendBtn = document.getElementById('send-btn');
+
+inputEl.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    sendMessage();
+  }
+});
+
+inputEl.addEventListener('input', () => {
+  inputEl.style.height = 'auto';
+  inputEl.style.height = Math.min(inputEl.scrollHeight, 100) + 'px';
+});
+
+function addMsg(role, text) {
+  const wrap = document.createElement('div');
+  wrap.className = 'msg ' + role;
+
+  if (role === 'system') {
+    wrap.innerHTML = `<div class="bubble">${escHtml(text)}</div>`;
+  } else {
+    const avatar = role === 'user' ? '👤' : '🦞';
+    wrap.innerHTML = `
+      <div class="avatar">${avatar}</div>
+      <div class="bubble">${escHtml(text)}</div>
+    `;
+  }
+
+  messagesEl.appendChild(wrap);
+  messagesEl.scrollTop = messagesEl.scrollHeight;
+  return wrap;
+}
+
+function showTyping() {
+  const wrap = document.createElement('div');
+  wrap.className = 'msg assistant';
+  wrap.innerHTML = `
+    <div class="avatar">🦞</div>
+    <div class="bubble"><div class="typing-dots"><span></span><span></span><span></span></div></div>
+  `;
+  messagesEl.appendChild(wrap);
+  messagesEl.scrollTop = messagesEl.scrollHeight;
+  typingEl = wrap;
+}
+
+function removeTyping() {
+  if (typingEl) { typingEl.remove(); typingEl = null; }
+}
+
+function escHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>');
+}
+
+async function sendMessage() {
+  if (isWaiting) return;
+  const text = inputEl.value.trim();
+  if (!text) return;
+
+  addMsg('user', text);
+  inputEl.value = '';
+  inputEl.style.height = 'auto';
+
+  isWaiting = true;
+  sendBtn.disabled = true;
+  showTyping();
+
+  try {
+    const res = await fetch(CHAT_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + gatewayToken,
+      },
+      body: JSON.stringify({
+        model: 'openclaw:main',
+        messages: [{ role: 'user', content: text }],
+        user: sessionId,
+        stream: false,
+      }),
+    });
+
+    removeTyping();
+
+    if (!res.ok) {
+      const err = await res.text();
+      if (res.status === 401) {
+        addMsg('system', '⚠️ Token 无效，请点击右上角"⚙ 重设 Token"重新输入');
+      } else {
+        addMsg('system', '⚠️ 请求失败 (' + res.status + ')：' + err.slice(0, 200));
+      }
+    } else {
+      const data = await res.json();
+      const reply = data?.choices?.[0]?.message?.content || JSON.stringify(data);
+      addMsg('assistant', reply);
+    }
+  } catch (e) {
+    removeTyping();
+    addMsg('system', '⚠️ 连接失败：' + e.message + '\n请确认 Gateway 正在运行（端口 18789）');
+  }
+
+  isWaiting = false;
+  sendBtn.disabled = false;
+  inputEl.focus();
+}
+
+// ── Browser Tabs ──────────────────────────────────────────────────────
+const paneNames = ['ONES', '大象', '学城'];
+
+function switchTab(idx, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.browser-pane').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('pane-' + idx).classList.add('active');
+}
+
+function loadUrl(idx) {
+  const urlInput = document.getElementById('url-' + idx);
+  let url = urlInput.value.trim();
+  if (!url) return;
+  if (!/^https?:\/\//i.test(url)) url = 'https://' + url;
+  urlInput.value = url;
+
+  const frame = document.getElementById('frame-' + idx);
+  const fallback = document.getElementById('fallback-' + idx);
+  const fallbackLink = document.getElementById('fallback-link-' + idx);
+
+  // Update fallback link
+  fallbackLink.href = url;
+  fallbackLink.textContent = '在新标签页打开 ' + paneNames[idx] + ' →';
+
+  // Try loading in iframe
+  fallback.style.display = 'none';
+  frame.style.display = 'block';
+  frame.src = url;
+
+  // Detect iframe block after a short wait
+  const timer = setTimeout(() => checkIframeBlocked(idx), 3000);
+  frame.onload = () => {
+    clearTimeout(timer);
+    // Try accessing contentDocument — if blocked, it will throw
+    try {
+      const doc = frame.contentDocument || frame.contentWindow.document;
+      if (!doc || doc.URL === 'about:blank') {
+        showFallback(idx);
+      }
+    } catch(e) {
+      // Cross-origin is normal, don't show fallback for it
+    }
+  };
+  frame.onerror = () => {
+    clearTimeout(timer);
+    showFallback(idx);
+  };
+}
+
+function checkIframeBlocked(idx) {
+  const frame = document.getElementById('frame-' + idx);
+  try {
+    // If still on about:blank after 3s, likely blocked
+    if (frame.contentWindow && frame.contentWindow.location.href === 'about:blank') {
+      showFallback(idx);
+    }
+  } catch(e) {
+    // Cross-origin: page loaded OK (even if we can't read it)
+  }
+}
+
+function showFallback(idx) {
+  const frame = document.getElementById('frame-' + idx);
+  const fallback = document.getElementById('fallback-' + idx);
+  frame.style.display = 'none';
+  fallback.style.display = 'flex';
+}
+
+function openExternal(idx) {
+  const url = document.getElementById('url-' + idx).value.trim();
+  if (url) window.open(url, '_blank');
+}
+
+// Handle Enter in URL bar
+document.querySelectorAll('.url-bar input').forEach((input, idx) => {
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Enter') loadUrl(idx);
+  });
+});
+
+// ── Boot ──────────────────────────────────────────────────────────────
+init();
+</script>
+</body>
+</html>
