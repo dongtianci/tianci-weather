@@ -1,58 +1,66 @@
 {
-  "ts": 1775197200000,
-  "date": "2026-04-03 13:45",
+  "date": "2026-04-04 08:19",
   "sections": [
     {
-      "emoji": "🤖",
-      "title": "AI资讯",
+      "id": "ai",
+      "title": "🤖 AI资讯",
       "items": [
         {
-          "title": "OpenAI完成$1220亿融资，ChatGPT周活跃用户达9亿",
-          "desc": "OpenAI最新融资轮已完成交割，亚马逊、英伟达、软银、微软共同参与，个人投资者追加$30亿。ChatGPT月访问量是第二大AI应用的6倍，并正在打造涵盖搜索、Codex、代理的「超级应用」。"
+          "title": "Anthropic bans third-party AI clients from Claude subscriptions",
+          "summary": "Starting April 4th, Claude subscriptions will no longer cover third-party access from tools like OpenClaw. Users must pay extra for API-based third-party integrations.",
+          "source": "The Verge"
         },
         {
-          "title": "Google Gemma 4开源，改用Apache 2.0协议",
-          "desc": "Google发布Gemma 4开源模型，放弃此前被开发者批评过度限制的自定义协议，改为更宽松的Apache 2.0开源协议，性能也大幅提升，深度整合Android开发生态。"
+          "title": "AI training data company Mercor hit by security breach",
+          "summary": "Meta has paused work with AI training data firm Mercor after a data breach potentially exposed AI industry secrets. OpenAI is also investigating the security incident.",
+          "source": "The Verge"
         },
         {
-          "title": "Claude Code泄露：内置Tamagotchi风格AI宠物与常驻代理功能",
-          "desc": "Anthropic Claude Code泄露版本显示，产品内置类似电子宠物的交互界面，并包含「始终在线代理」功能，意味着AI助手将能在后台持续执行任务，无需用户主动触发。"
+          "title": "Elon Musk demands SpaceX IPO advisers subscribe to Grok",
+          "summary": "Musk is reportedly requiring banks, law firms, and auditors working on the SpaceX IPO to purchase subscriptions to his Grok AI chatbot, now technically under the SpaceX umbrella.",
+          "source": "The Verge"
         }
       ]
     },
     {
-      "emoji": "💰",
-      "title": "金融资讯",
+      "id": "finance",
+      "title": "💰 金融资讯",
       "items": [
         {
-          "title": "美股收复失地，美油突破$110关口",
-          "desc": "受伊朗战局推高能源需求预期，美国原油价格突破每桶110美元，美股本周整体收涨。霍尔木兹海峡局势持续紧张，能源市场波动加剧。"
+          "title": "US employers added 178,000 jobs in March, beating expectations",
+          "summary": "American employers added a surprisingly strong 178,000 new jobs last month, rebounding from a dismal February. The unemployment rate dipped to 4.3%.",
+          "source": "AP News"
         },
         {
-          "title": "SpaceX向SEC提交IPO初步文件，马斯克或成万亿富翁",
-          "desc": "SpaceX正式向美国证交会提交IPO初步文件，若成功上市，马斯克身家或突破万亿美元。此举与其旗下xAI、Tesla的多线并进战略相呼应。"
+          "title": "Trump unveils 100% tariff on some patented drugs on 'Liberation Day' anniversary",
+          "summary": "The Trump administration announced sweeping 100% tariffs on certain patented pharmaceuticals as part of ongoing trade policy moves marking the anniversary of 'Liberation Day'.",
+          "source": "AP News"
         },
         {
-          "title": "亚洲市场因伊朗战事能源冲击，油价走强",
-          "desc": "中东战事引发全球能源供应担忧，亚洲各国加速争购俄罗斯替代油源，WTO同步示警全球贸易增速下调，各国供应链重组压力持续上升。"
+          "title": "Oil tops $110 a barrel as Iran war rattles global markets",
+          "summary": "Stocks recovered from early losses to close with a weekly gain, but US oil surged past $110 a barrel amid deepening concerns over the Iran conflict's impact on global energy supply.",
+          "source": "AP News"
         }
       ]
     },
     {
-      "emoji": "🌍",
-      "title": "国际局势",
+      "id": "world",
+      "title": "🌍 国际局势",
       "items": [
         {
-          "title": "伊朗战事持续第五周，霍尔木兹海峡危机升级",
-          "desc": "伊朗向中东多目标发动打击，科威特炼油设施起火；美以继续空袭伊朗。英国召集逾40国施压伊朗重开霍尔木兹海峡，特朗普表示美军目标「即将完成」，但未给出结束时间表。"
+          "title": "2 US aircraft shot down as war in Iran escalates",
+          "summary": "Two US military planes were shot down in separate incidents on Friday, including a fighter jet hit by Iran's air defenses. At least one crew member is reported missing.",
+          "source": "AP News"
         },
         {
-          "title": "Artemis II升空，人类时隔半世纪再次飞向月球",
-          "desc": "NASA Artemis II四名宇航员已进入月球转移轨道，完成绕地飞行后正式向月球进发，这是1972年Apollo 17后人类首次飞往月球轨道的载人任务。"
+          "title": "UK gathers 40+ countries to press Iran to reopen Strait of Hormuz",
+          "summary": "Britain has assembled a coalition of more than 40 nations to pressure Iran to reopen the Strait of Hormuz, a critical global oil shipping lane that has been disrupted by the ongoing conflict.",
+          "source": "AP News"
         },
         {
-          "title": "中巴阿富汗塔利班三方在华举行停火谈判",
-          "desc": "AP独家：巴基斯坦与阿富汗塔利班官员在中国举行和平谈判，寻求缓和边境紧张局势。中国以调停方身份积极介入，外界认为此举有助于稳定西亚战略格局。"
+          "title": "Russian strikes on Ukraine kill 8 as Kyiv holds door open for Easter truce",
+          "summary": "Russia launched fresh aerial attacks on Ukraine killing at least 8 people, even as Kyiv signaled openness to an Easter ceasefire and an Easter prisoner exchange was being planned.",
+          "source": "AP News"
         }
       ]
     }
