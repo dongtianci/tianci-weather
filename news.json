@@ -1,66 +1,72 @@
 {
-  "date": "2026-04-04 12:19",
-  "sections": [
+  "date": "2026-04-05 08:18",
+  "news": [
     {
-      "id": "ai",
-      "title": "🤖 AI资讯",
+      "category": "🤖 AI资讯",
       "items": [
         {
-          "title": "Anthropic essentially bans OpenClaw from Claude by making subscribers pay extra",
-          "summary": "Claude subscriptions will no longer cover third-party access from tools like OpenClaw starting Saturday, April 4th. This marks a significant shift in Anthropic's API access policy.",
-          "source": "The Verge"
+          "title": "编剧工会与好莱坞达成四年新合同，强化AI保护条款",
+          "summary": "美国编剧工会（WGA）与各大制片公司达成为期四年的协议，合同中新增了防止作品被用于训练AI的保护条款，同时提高了流媒体剩余版权费。",
+          "source": "The Verge",
+          "url": "https://www.theverge.com/2026/4/5/writers-guild-four-year-deal-studios-ai-protections"
         },
         {
-          "title": "Meta pauses work with Mercor after data breach puts AI industry secrets at risk",
-          "summary": "A company that makes AI training data, Mercor, has been hit by a security breach. Meta has paused work with Mercor while OpenAI is investigating the incident.",
-          "source": "The Verge"
+          "title": "OpenAI完成122亿美元融资，ChatGPT每周用户达9亿",
+          "summary": "OpenAI最新一轮私募融资已完成交割，亚马逊、英伟达、软银、微软等参与，同时宣布ChatGPT将整合成\"超级App\"，月活访问量为第二名AI应用的6倍。",
+          "source": "The Verge",
+          "url": "https://www.theverge.com/2026/4/1/openai-122-billion-funding-round-900-million-weekly-chatgpt-users"
         },
         {
-          "title": "Elon Musk demands banks and advisers buy Grok subscriptions for SpaceX IPO access",
-          "summary": "The New York Times reports that Musk is requiring banks, law firms, auditors and other advisers working on the SpaceX IPO to buy subscriptions to his Grok AI platform.",
-          "source": "The Verge"
+          "title": "Google发布Gemma 4开源模型，改用Apache 2.0许可证",
+          "summary": "Google新版Gemma 4将授权协议从受限的自定义许可改为更宽松的Apache 2.0，同时带来性能提升，大幅降低开发者使用门槛。",
+          "source": "The Verge",
+          "url": "https://www.theverge.com/2026/4/3/google-gemma-4-open-ai-model-apache-license"
         }
       ]
     },
     {
-      "id": "finance",
-      "title": "💰 金融资讯",
+      "category": "💰 金融资讯",
       "items": [
         {
-          "title": "US employers added a surprisingly strong 178,000 jobs last month, rebounding from a weak February",
-          "summary": "American employers added 178,000 new jobs in March, rebounding from a dismal February. The unemployment rate dipped to 4.3%, beating market expectations.",
-          "source": "AP News"
+          "title": "美股本周收复失地，美国原油价格突破每桶110美元",
+          "summary": "受伊朗战争影响原油大涨，美国原油价格飙升至每桶110美元以上，但股市在周末前强劲反弹，道琼斯指数单日涨逾1100点，录得去年春季以来最佳单日表现。",
+          "source": "AP News",
+          "url": "https://apnews.com/article/stocks-oil-iran-war-markets-weekly-gain"
         },
         {
-          "title": "Trump unveils 100% tariff on some patented drugs on 'Liberation Day' anniversary",
-          "summary": "President Trump announced sweeping 100% tariffs on certain patented pharmaceutical drugs, marking the anniversary of his 'Liberation Day' tariff announcement.",
-          "source": "AP News"
+          "title": "特朗普宣布对部分专利药品加征100%关税",
+          "summary": "在\"解放日\"一周年之际，特朗普宣布对部分专利药品征收100%关税，引发制药行业震动，并加剧市场对通胀压力回升的担忧。",
+          "source": "AP News",
+          "url": "https://apnews.com/article/trump-100-tariff-patented-drugs-liberation-day"
         },
         {
-          "title": "Stocks recover from early losses and close with a weekly gain; US oil tops $110 a barrel",
-          "summary": "US stocks rebounded to close the week with gains despite Iran war-driven volatility. Oil prices surged past $110 a barrel as the conflict continues to rattle energy markets.",
-          "source": "AP News"
+          "title": "美国3月新增就业17.8万人，强劲反弹超出预期",
+          "summary": "美国劳工部数据显示，3月非农就业人数强劲增加17.8万，从2月疲软数据中明显回升，但分析师警告伊朗战争带来的能源价格冲击可能对后续就业造成拖累。",
+          "source": "AP News",
+          "url": "https://apnews.com/article/us-jobs-march-2026-employment-report"
         }
       ]
     },
     {
-      "id": "world",
-      "title": "🌍 国际局势",
+      "category": "🌍 国际局势",
       "items": [
         {
-          "title": "2 US aircraft shot down as war in Iran escalates; at least 1 crew member is missing",
-          "summary": "Two U.S. military planes were shot down in separate incidents on Friday, escalating tensions in the ongoing Iran conflict. One fighter jet was downed inside Iran, marking the first US aircraft lost to enemy fire in over 20 years.",
-          "source": "AP News"
+          "title": "特朗普给伊朗48小时最后通牒：开放霍尔木兹海峡",
+          "summary": "美国总统特朗普再次警告伊朗必须在48小时内开放霍尔木兹海峡，同时美方正持续搜寻一架被击落的美军飞机失联飞行员，伊朗威胁将\"打开地狱之门\"。",
+          "source": "AP News",
+          "url": "https://apnews.com/article/trump-iran-48-hours-strait-of-hormuz-missing-pilot"
         },
         {
-          "title": "UK gathers more than 40 countries to press Iran to reopen the Strait of Hormuz",
-          "summary": "Britain convened a coalition of over 40 nations to demand Iran reopen the Strait of Hormuz, as the closure continues to strangle global oil exports and cause economic shockwaves worldwide.",
-          "source": "AP News"
+          "title": "俄乌双方互相发动致命打击，泽连斯基赴伊斯坦布尔会见埃尔多安",
+          "summary": "俄军空袭导致乌克兰8人死亡，乌方随即展开反击；与此同时，泽连斯基前往伊斯坦布尔与土耳其总统埃尔多安举行会谈，寻求停火斡旋。",
+          "source": "AP News",
+          "url": "https://apnews.com/article/russia-ukraine-strikes-zelensky-istanbul-erdogan"
         },
         {
-          "title": "Russian strikes on Ukraine kill 8 as Kyiv holds door open for Easter truce",
-          "summary": "Russia launched fresh aerial attacks on Ukraine killing at least 8 people, even as Ukraine signaled openness to a potential Easter ceasefire. A prisoner exchange is also being planned for the holiday.",
-          "source": "AP News"
+          "title": "英国召集40余国施压伊朗重开霍尔木兹海峡，欧洲各国推动能源价格上限",
+          "summary": "英国牵头召集超过40个国家共同向伊朗施压，要求恢复海峡航运通道；欧洲多国部长同时呼吁对能源公司利润设定上限，以应对伊朗战争推动的油气价格飙升。",
+          "source": "AP News",
+          "url": "https://apnews.com/article/uk-40-countries-iran-strait-hormuz-europe-energy-price-caps"
         }
       ]
     }
