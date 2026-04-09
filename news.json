@@ -1,59 +1,75 @@
 {
-  "ts": 1744157880000,
-  "date": "2026-04-09 10:18",
-  "content": "以下是今日（2026年4月9日）资讯汇总：\n\n---\n\n🤖 **AI资讯**（3条）\n\n1. **Anthropic限制第三方平台使用Claude订阅** — 上诉法院最新裁定拒绝Anthropic要求，其与特朗普政府的AI版权争议持续发酵，开发者与企业关注后续影响。\n\n2. **AI训练数据公司Mercor遭遇安全漏洞** — Meta已暂停与AI训练数据公司Mercor的合作，OpenAI也在调查该公司安全事件，涉及AI行业机密数据泄露风险。\n\n3. **Elon Musk要求SpaceX合作方订阅Grok** — 马斯克向寻求SpaceX IPO合作的银行、律所等强制要求订阅Grok服务，Grok已并入SpaceX旗下，引发外界广泛关注。\n\n---\n\n💰 **金融资讯**（3条）\n\n1. **美伊停火协议推动全球股市大涨** — 特朗普宣布与伊朗达成两周停火协议，道琼斯指数暴涨1300点，全球股市普涨，油价跌破每桶95美元。\n\n2. **美联储官员暗示年内可能加息** — 美联储会议纪要显示，更多官员认为今年可能需要加息，JPMorgan CEO Dimon警告伊朗战争可能重燃通胀压力。\n\n3. **西南航空取消免费托运行李政策** — 西南航空宣布上调行李收费，原因是航空燃油成本上升，这一标志性政策的终结引发大量老用户不满。\n\n---\n\n🌍 **国际局势**（3条）\n\n1. **美伊停火达成，但网络攻击威胁犹存** — 美国与伊朗就两周停火达成协议，油价随即下跌，但安全专家警告伊朗背景黑客组织短期内不会停止网络攻击行动。\n\n2. **伊朗提出对霍尔木兹海峡征收通行费** — 伊朗提议对过往船只征收霍尔木兹海峡通行费，国际社会普遍认为此举违反贸易规范，引发新一轮外交博弈。\n\n3. **加拿大又有保守党议员加入卡尼自由党** — 加拿大自由党领袖卡尼成功争取第5位保守党议员转投，大选前政治格局加速重塑。\n\n---\n\n📌 天气网站资讯数据已更新并推送至 GitHub ✅",
+  "date": "2026-04-10 08:00",
   "sections": [
     {
-      "emoji": "🤖",
-      "title": "AI资讯",
+      "id": "ai",
+      "title": "🤖 AI资讯",
       "items": [
         {
-          "title": "Anthropic限制第三方平台使用Claude订阅",
-          "summary": "上诉法院最新裁定拒绝Anthropic要求，其与特朗普政府的AI版权争议持续发酵，开发者与企业关注后续影响。"
+          "title": "Meta发布新AI模型"Muse Spark"重返AI竞争赛道",
+          "summary": "Meta在投入数十亿美元研究超级智能后，推出Llama继任者Muse Spark，再度加入AI竞争。",
+          "source": "The Verge",
+          "url": "https://www.theverge.com/tech/908769/meta-muse-spark-ai-model-launch-rollout"
         },
         {
-          "title": "AI训练数据公司Mercor遭遇安全漏洞",
-          "summary": "Meta已暂停与AI训练数据公司Mercor的合作，OpenAI也在调查该公司安全事件，涉及AI行业机密数据泄露风险。"
+          "title": "Anthropic新模型"Project Glasswing"发现主流操作系统和浏览器安全漏洞",
+          "summary": "Anthropic安全模型在每个主流操作系统和网页浏览器中均发现安全问题，目前仅向防御性安全合作伙伴开放。",
+          "source": "The Verge",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/908114/anthropic-project-glasswing-cybersecurity"
         },
         {
-          "title": "Elon Musk要求SpaceX合作方订阅Grok",
-          "summary": "马斯克向寻求SpaceX IPO合作的银行、律所等强制要求订阅Grok服务，Grok已并入SpaceX旗下，引发外界广泛关注。"
+          "title": "英特尔将协助建设马斯克的Terafab AI芯片工厂",
+          "summary": "英特尔将为SpaceX和Tesla设计并建造半导体工厂，参与马斯克旗下Terafab AI芯片制造项目。",
+          "source": "The Verge",
+          "url": "https://www.theverge.com/transportation/907976/elon-musk-terafab-intel-ai-chip-spacex-tesla"
         }
       ]
     },
     {
-      "emoji": "💰",
-      "title": "金融资讯",
+      "id": "finance",
+      "title": "💰 金融资讯",
       "items": [
         {
-          "title": "美伊停火协议推动全球股市大涨",
-          "summary": "特朗普宣布与伊朗达成两周停火协议，道琼斯指数暴涨1300点，全球股市普涨，油价跌破每桶95美元。"
+          "title": "关税攀升之际，贸易欺诈与会计造假大行其道",
+          "summary": "美国来自中国的进口量急剧下降，但数十亿美元的变化似乎源于会计手段和公然欺诈行为。",
+          "source": "NYT Economy",
+          "url": "https://www.nytimes.com/2026/04/10/business/economy/tariffs-trade-fraud.html"
         },
         {
-          "title": "美联储官员暗示年内可能加息",
-          "summary": "美联储会议纪要显示，更多官员认为今年可能需要加息，JPMorgan CEO Dimon警告伊朗战争可能重燃通胀压力。"
+          "title": "3月就业报告：美国新增就业岗位17.8万个，强于预期",
+          "summary": "医疗业罢工结束和严冬缓和后，3月薪资增加、失业率下降，就业市场表现稳健。",
+          "source": "NYT Economy",
+          "url": "https://www.nytimes.com/2026/04/10/business/economy/march-jobs-report.html"
         },
         {
-          "title": "西南航空取消免费托运行李政策",
-          "summary": "西南航空宣布上调行李收费，原因是航空燃油成本上升，这一标志性政策的终结引发大量老用户不满。"
+          "title": "特朗普对金属和药品关税进行大幅调整",
+          "summary": "特朗普政府宣布新关税并修订现有政策，影响对白宫贸易决策有较大影响力的行业。",
+          "source": "NYT Economy",
+          "url": "https://www.nytimes.com/2026/04/10/business/economy/trump-tariffs-metals-pharmaceuticals.html"
         }
       ]
     },
     {
-      "emoji": "🌍",
-      "title": "国际局势",
+      "id": "world",
+      "title": "🌍 国际局势",
       "items": [
         {
-          "title": "美伊停火达成，但网络攻击威胁犹存",
-          "summary": "美国与伊朗就两周停火达成协议，油价随即下跌，但安全专家警告伊朗背景黑客组织短期内不会停止网络攻击行动。"
+          "title": "伊朗停火后以色列同意与黎巴嫩谈判，但持续打击真主党",
+          "summary": "停火协议达成后，以色列同意重启与黎巴嫩的谈判，但仍继续对真主党目标发动空袭。",
+          "source": "NYT World",
+          "url": "https://www.nytimes.com/live/2026/04/10/world/israel-lebanon-iran-war"
         },
         {
-          "title": "伊朗提出对霍尔木兹海峡征收通行费",
-          "summary": "伊朗提议对过往船只征收霍尔木兹海峡通行费，国际社会普遍认为此举违反贸易规范，引发新一轮外交博弈。"
+          "title": "泽连斯基认为和平谈判存在短暂窗口期",
+          "summary": "乌克兰总统泽连斯基表示，当前存在推动和平谈判的小窗口，但形势仍十分复杂。",
+          "source": "NYT World",
+          "url": "https://www.nytimes.com/2026/04/09/world/europe/zelensky-peace-window.html"
         },
         {
-          "title": "加拿大又有保守党议员加入卡尼自由党",
-          "summary": "加拿大自由党领袖卡尼成功争取第5位保守党议员转投，大选前政治格局加速重塑。"
+          "title": "克里姆林宫镇压升级：报纸遭搜查，人权组织被取缔",
+          "summary": "俄罗斯对独立媒体和公民社会组织的打压持续加剧，克里姆林宫清算行动再现新动向。",
+          "source": "NYT World",
+          "url": "https://www.nytimes.com/2026/04/09/world/europe/russia-newspaper-raid-rights-group.html"
         }
       ]
     }
