@@ -1,75 +1,75 @@
 {
-  "date": "2026-04-10 08:00",
-  "sections": [
+  "date": "2026-04-11 08:00",
+  "categories": [
     {
       "id": "ai",
-      "title": "🤖 AI资讯",
+      "label": "🤖 AI资讯",
       "items": [
         {
-          "title": "Meta 推出新 AI 模型「Muse Spark」重返 AI 竞赛",
-          "summary": "Meta 投入数十亿美元研发超级智能后，推出 Llama 继任模型 Muse Spark，正式重返 AI 赛场。",
-          "source": "The Verge",
-          "url": "https://www.theverge.com/tech/908769/meta-muse-spark-ai-model-launch-rollout"
+          "title": "Sam Altman回应家门被扔燃烧瓶事件，反思AI与权力",
+          "summary": "OpenAI CEO Sam Altman在博客发文，回应昨日有人向其住所投掷燃烧瓶的事件，并探讨AI发展、AGI控制权分配等议题，强调不应由单一公司掌控AGI。",
+          "url": "https://www.theverge.com/ai-artificial-intelligence",
+          "source": "The Verge"
         },
         {
-          "title": "Tubi 成为首家在 ChatGPT 中上线应用的流媒体平台",
-          "summary": "用户可在 ChatGPT 中输入「@Tubi」描述观影心情，获取个性化内容推荐并直接跳转观看。",
-          "source": "The Verge",
-          "url": "https://www.theverge.com/streaming/909015/tubi-is-the-first-streaming-service-with-a-chatgpt-app"
+          "title": "Anthropic与Google、Broadcom签署AI算力大单，年化营收突破300亿美元",
+          "summary": "Anthropic宣布与Google和Broadcom签署大规模AI基础设施协议，将获得数吉瓦级下一代TPU算力，预计2027年起上线，同时披露公司年化营收已超30亿美元。",
+          "url": "https://www.theverge.com/2026/4/7/anthropic-google-broadcom-tpu-deal",
+          "source": "The Verge"
         },
         {
-          "title": "Anthropic 新模型「Project Glasswing」在所有主流操作系统和浏览器中发现安全漏洞",
-          "summary": "Anthropic 网络安全专项模型已在每个主流操作系统和网页浏览器中发现安全问题，目前仅向防御性安全合作伙伴开放。",
-          "source": "The Verge",
-          "url": "https://www.theverge.com/ai-artificial-intelligence/908114/anthropic-project-glasswing-cybersecurity"
+          "title": "Anthropic发布企业协作AI工作空间Claude Cowork，新增IT管理功能",
+          "summary": "Anthropic推出面向企业的共享AI工作空间Claude Cowork，支持IT管理员批量部署、构建自主工作流，并新增将Zoom会议转录转化为行动项目的功能。",
+          "url": "https://www.theverge.com/2026/4/10/claude-cowork-enterprise-workspace",
+          "source": "The Verge"
         }
       ]
     },
     {
       "id": "finance",
-      "title": "💰 金融资讯",
+      "label": "💰 金融资讯",
       "items": [
         {
-          "title": "美伊停火协议达成，欧洲股市收涨，旅游股领涨 7%",
-          "summary": "美国与伊朗停火消息提振市场信心，欧洲股指全线上扬，航空和旅游板块涨幅居前，达 7%。",
-          "source": "CNBC",
-          "url": "https://www.cnbc.com/world-markets/"
+          "title": "特斯拉股价连续八周下跌，年内累计跌幅超20%",
+          "summary": "特斯拉股票延续连续下跌态势，今年以来跌幅已超过20%，投资者对公司缺乏重要新品更新感到担忧，市场信心持续低迷。",
+          "url": "https://finance.yahoo.com/news/tesla-stock-extends-losing-streak-8-weeks",
+          "source": "Yahoo Finance"
         },
         {
-          "title": "伊朗袭击沙特关键油气设施，沙特原油产量大幅削减",
-          "summary": "伊朗对沙特重要管道和生产设施发动攻击，导致沙特王国石油产量锐减，油价随之大幅波动。",
-          "source": "CNBC",
-          "url": "https://www.cnbc.com/world-markets/"
+          "title": "美国3月CPI数据：伊朗战争导致油价飙升",
+          "summary": "美国3月CPI数据显示，伊朗战争引发的能源冲击推动汽油价格大幅上涨，通胀压力重燃，经济学家担忧战争对全球能源市场的持续影响。",
+          "url": "https://finance.yahoo.com/personal-finance/march-cpi-iran-war-gas-prices",
+          "source": "Yahoo Finance"
         },
         {
-          "title": "美股小幅上涨，油价在伊停火希望升温后涨幅收窄",
-          "summary": "美国股市收涨，由于市场对美伊停火谈判前景抱有期待，国际油价此前涨幅有所回落。",
-          "source": "CNBC",
-          "url": "https://www.cnbc.com/world-markets/"
+          "title": "Anthropic与CoreWeave签署AI算力协议，AI芯片交易持续爆炸式增长",
+          "summary": "Anthropic宣布与云算力公司CoreWeave签署大规模AI基础设施合作协议，CoreWeave股价随即上涨逾10%，反映出市场对AI算力需求持续旺盛的预期。",
+          "url": "https://finance.yahoo.com/news/anthropic-coreweave-ai-infrastructure-deal",
+          "source": "Yahoo Finance"
         }
       ]
     },
     {
       "id": "world",
-      "title": "🌍 国际局势",
+      "label": "🌍 国际局势",
       "items": [
         {
-          "title": "内塔尼亚胡授权与黎巴嫩直接谈判，中东停火出现新进展",
-          "summary": "以色列总理内塔尼亚胡批准与黎巴嫩展开直接谈判，目标是解除真主党武装并推动两国关系正常化。",
-          "source": "AP News",
-          "url": "https://apnews.com/article/iran-us-israel-trump-lebanon-april-9-2026-7760f88f183ed2a13a721057e31f3ce7"
+          "title": "美伊即将在巴基斯坦举行高级别谈判，霍尔木兹海峡局势牵动全球",
+          "summary": "美伊两国代表团将前往巴基斯坦进行高级别谈判，副总统万斯警告伊朗不得"戏弄"美方，特朗普则表示霍尔木兹海峡将重新开放，但停火协议仍十分脆弱。",
+          "url": "https://apnews.com/article/us-iran-talks-pakistan-vance-hormuz",
+          "source": "AP News"
         },
         {
-          "title": "普京宣布在乌克兰实施东正教复活节期间停火",
-          "summary": "俄罗斯总统普京下令俄军在东正教复活节期间在乌克兰执行停火，停火于当地时间下午 4 点生效。",
-          "source": "AP News",
-          "url": "https://apnews.com/article/russia-ukraine-putin-orthodox-easter-ceasefire-ff25a818f5509d6820df1f3deba587e7"
+          "title": "以色列空袭贝鲁特市中心，造成逾300人死亡；各方惊喜传来谈判消息",
+          "summary": "以色列对黎巴嫩贝鲁特市中心发动空袭，已造成超过300人死亡，救援人员仍在废墟中搜救幸存者，与此同时各方传出谈判启动的消息，局势出现转机。",
+          "url": "https://apnews.com/article/israel-lebanon-beirut-strike-killed-talks",
+          "source": "AP News"
         },
         {
-          "title": "北约秘书长吕特面临新考验：特朗普就伊朗问题向北约施压",
-          "summary": "北约秘书长马克·吕特拒绝就特朗普是否欲退出北约表态，美伊战争再度引发北约内部路线分歧。",
-          "source": "AP News",
-          "url": "https://apnews.com/article/nato-iran-rutte-trump-hormuz-support-e43e774a64341e3ad8d1b73823f07298"
+          "title": "普京宣布东正教复活节期间乌克兰停火",
+          "summary": "俄罗斯总统普京宣布在东正教复活节期间对乌克兰实施停火，但乌方对此持保留态度；与此同时，乌克兰军队在利比亚击落俄罗斯油轮的消息进一步加剧地区紧张态势。",
+          "url": "https://apnews.com/article/russia-putin-ceasefire-ukraine-orthodox-easter",
+          "source": "AP News"
         }
       ]
     }
