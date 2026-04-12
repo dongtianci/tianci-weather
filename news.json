@@ -1,22 +1,25 @@
 {
-  "date": "2026-04-12 10:23",
+  "date": "2026-04-13 08:00",
   "news": [
     {
       "category": "🤖 AI资讯",
       "items": [
         {
-          "title": "OpenAI responds to Axios HTTP hack by updating security certificates",
-          "summary": "Axios第三方库遭供应链攻击，ChatGPT macOS应用签名证书或被泄露，OpenAI已紧急更新证书以降低风险。",
+          "title": "OpenAI 回应 Axios 供应链攻击，紧急更新 macOS 应用签名证书",
+          "summary": "黑客通过入侵 Axios 库（v1.14.1）植入恶意脚本，波及 ChatGPT Desktop、Codex 等 macOS 应用。OpenAI 已撤销受影响证书并推送新版本，同时公开披露事件细节。",
+          "source": "The Verge",
           "url": "https://www.theverge.com/ai-artificial-intelligence"
         },
         {
-          "title": "Anthropic expands partnership with Google and Broadcom for gigawatts of next-gen compute",
-          "summary": "Anthropic与谷歌及博通签署大规模AI基础设施协议，将获得数吉瓦级TPU算力，预计2027年投入使用，公司年化营收已超300亿美元。",
+          "title": "Anthropic 上诉失败，将继续被排除在美国国防部合同之外",
+          "summary": "法院驳回 Anthropic 暂停"供应链风险"认定的上诉请求，公司将持续被禁止参与新的五角大楼合同及系统。",
+          "source": "The Verge / AP News",
           "url": "https://www.theverge.com/ai-artificial-intelligence"
         },
         {
-          "title": "Claude Cowork adds IT admin tools for company-wide deployment of autonomous workflows",
-          "summary": "Anthropic推出面向企业的Claude Cowork共享AI工作区，支持IT管理员全公司部署，并新增将Zoom会议记录转化为行动事项的功能。",
+          "title": "AI 编码大战升温：OpenAI、Google、Anthropic 正在蚕食软件开发领域",
+          "summary": "The Verge 深度报道：三大 AI 巨头在代码生成上展开激烈角逐，Anthropic Claude Cowork 新推企业级部署功能，ChatGPT $100/月 Pro 订阅同步上线，AI 正加速渗透软件工程全流程。",
+          "source": "The Verge",
           "url": "https://www.theverge.com/ai-artificial-intelligence"
         }
       ]
@@ -25,19 +28,22 @@
       "category": "💰 金融资讯",
       "items": [
         {
-          "title": "War in Iran sends inflation soaring and the mood of American consumers plunging",
-          "summary": "伊朗战争导致美国通胀急剧上升，消费者信心大幅下滑，经济前景愈发悲观。",
-          "url": "https://apnews.com/business"
+          "title": "油价突破 $100，美伊谈判破裂引发全球能源危机担忧",
+          "summary": "美伊巴基斯坦谈判 21 小时无果后破裂，美国宣布即日起对霍尔木兹海峡实施海军封锁，布伦特原油随即跳涨，欧洲航空业警告或出现航空燃油短缺。",
+          "source": "BBC Business / AP News",
+          "url": "https://www.bbc.com/business"
         },
         {
-          "title": "US stocks rise and oil prices trim gains on hopes for the ceasefire with Iran",
-          "summary": "美伊停火谈判带来希望，美股上涨而油价涨幅收窄，市场情绪有所回暖。",
-          "url": "https://apnews.com/business"
+          "title": "美国通胀升至近两年最高，油价飙升是主因",
+          "summary": "受伊朗战争导致汽油价格大幅上涨推动，美国通胀率升至 3.3%，为近两年来最高水平，市场密切关注美联储后续利率走向。",
+          "source": "BBC Business",
+          "url": "https://www.bbc.com/business"
         },
         {
-          "title": "IMF chief warns that Iran war will slow global economic growth",
-          "summary": "国际货币基金组织总裁警告，伊朗战争将拖累全球经济增长，能源价格冲击波及多国。",
-          "url": "https://apnews.com/business"
+          "title": "亚洲争相抢购俄罗斯原油，应对能源价格冲击",
+          "summary": "霍尔木兹危机促使亚洲多国加速转向俄罗斯原油，中国车企出口也因预期 EV 加速普及而大幅增长，全球能源格局加速重塑。",
+          "source": "AP News",
+          "url": "https://apnews.com/world-news"
         }
       ]
     },
@@ -45,18 +51,21 @@
       "category": "🌍 国际局势",
       "items": [
         {
-          "title": "US Vice President JD Vance says talks with Iran ended after 21 hours without reaching agreement",
-          "summary": "美国副总统万斯表示，美伊第三轮谈判在巴基斯坦进行了21小时后无果而终，双方仍未达成协议。",
+          "title": "匈牙利大选震惊欧洲：执政 16 年的奥尔班败选下台",
+          "summary": "反对党领袖 Péter Magyar 赢得匈牙利大选，终结奥尔班 16 年执政。欧洲各国领导人纷纷祝贺，称这是欧洲民主的重大胜利。",
+          "source": "AP News",
           "url": "https://apnews.com/world-news"
         },
         {
-          "title": "Orthodox Easter truce falters as Ukraine says Russia continues drone strikes",
-          "summary": "俄罗斯宣布东正教复活节停火，但乌克兰称俄方仍在持续发动无人机袭击，停火协议形同虚设。",
+          "title": "美伊停火后俄乌战场：双方互指对方违反普京复活节停火承诺",
+          "summary": "普京宣布的复活节停火快速破裂，乌克兰指俄罗斯持续发动无人机袭击，泽连斯基表示乌军在伊朗战争期间协助击落了多架 Shahed 无人机。",
+          "source": "AP News",
           "url": "https://apnews.com/world-news"
         },
         {
-          "title": "UK puts Chagos Islands handover deal on hold after Trump withdraws support",
-          "summary": "特朗普撤回对英国将查戈斯群岛移交毛里求斯协议的支持后，英国宣布暂停该协议推进。",
+          "title": "美国宣布封锁霍尔木兹海峡，中东紧张局势急剧升级",
+          "summary": "特朗普宣布美国海军将立即开始封锁进出霍尔木兹海峡的船只，同时伊朗代表团抵达巴基斯坦参与后续外交斡旋，局势仍高度不确定。",
+          "source": "AP News",
           "url": "https://apnews.com/world-news"
         }
       ]
