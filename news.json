@@ -1,75 +1,63 @@
 {
-  "date": "2026-04-12 08:00",
-  "categories": [
+  "date": "2026-04-12 10:23",
+  "news": [
     {
-      "id": "ai",
-      "label": "🤖 AI资讯",
+      "category": "🤖 AI资讯",
       "items": [
         {
-          "title": "OpenAI回应Axios供应链攻击：更新macOS安全证书",
-          "summary": "2026年3月31日，广泛使用的开源库Axios遭供应链攻击，黑客植入恶意脚本。OpenAI确认其macOS应用签名流程受波及，ChatGPT Desktop、Codex等应用的签名证书可能被盗，已紧急发布更新并重新颁发证书。",
-          "url": "https://www.theverge.com/ai-artificial-intelligence",
-          "source": "The Verge"
+          "title": "OpenAI responds to Axios HTTP hack by updating security certificates",
+          "summary": "Axios第三方库遭供应链攻击，ChatGPT macOS应用签名证书或被泄露，OpenAI已紧急更新证书以降低风险。",
+          "url": "https://www.theverge.com/ai-artificial-intelligence"
         },
         {
-          "title": "Claude Cowork面向企业正式上线：支持IT批量部署与自主工作流",
-          "summary": "Anthropic推出企业级共享AI工作空间Claude Cowork，IT管理员可在整个组织进行批量部署，付费用户可构建自主工作流。新版还支持将Zoom会议转录自动转为行动项目清单。",
-          "url": "https://www.theverge.com/ai-artificial-intelligence",
-          "source": "The Verge"
+          "title": "Anthropic expands partnership with Google and Broadcom for gigawatts of next-gen compute",
+          "summary": "Anthropic与谷歌及博通签署大规模AI基础设施协议，将获得数吉瓦级TPU算力，预计2027年投入使用，公司年化营收已超300亿美元。",
+          "url": "https://www.theverge.com/ai-artificial-intelligence"
         },
         {
-          "title": "Anthropic模型在每个主流操作系统和浏览器中均发现安全漏洞",
-          "summary": "据The Verge报道，Anthropic一款安全审计专项模型经过测试后，在每个主流操作系统（含Windows、macOS、Linux）和主流浏览器中均发现了安全问题，引发业界对AI安全能力的广泛关注。",
-          "url": "https://www.theverge.com/ai-artificial-intelligence",
-          "source": "The Verge"
+          "title": "Claude Cowork adds IT admin tools for company-wide deployment of autonomous workflows",
+          "summary": "Anthropic推出面向企业的Claude Cowork共享AI工作区，支持IT管理员全公司部署，并新增将Zoom会议记录转化为行动事项的功能。",
+          "url": "https://www.theverge.com/ai-artificial-intelligence"
         }
       ]
     },
     {
-      "id": "finance",
-      "label": "💰 金融资讯",
+      "category": "💰 金融资讯",
       "items": [
         {
-          "title": "伊朗战争推高通胀，美消费者信心大幅下滑",
-          "summary": "伊朗战争导致能源价格飙升，美国通胀压力重燃。最新数据显示美国消费者信心急剧下降，经济学家担忧战争冲击将持续影响美国家庭消费与企业投资。",
-          "url": "https://apnews.com/business",
-          "source": "AP News"
+          "title": "War in Iran sends inflation soaring and the mood of American consumers plunging",
+          "summary": "伊朗战争导致美国通胀急剧上升，消费者信心大幅下滑，经济前景愈发悲观。",
+          "url": "https://apnews.com/business"
         },
         {
-          "title": "美伊停火协议提振市场：道指暴涨1300点，油价大幅回落",
-          "summary": "美伊达成两周停火协议后，全球股市出现强劲反弹，道琼斯指数单日上涨逾1300点；同时油价从高位大幅回落至95美元以下，霍尔木兹海峡局势趋于缓和提振能源市场。",
-          "url": "https://apnews.com/business",
-          "source": "AP News"
+          "title": "US stocks rise and oil prices trim gains on hopes for the ceasefire with Iran",
+          "summary": "美伊停火谈判带来希望，美股上涨而油价涨幅收窄，市场情绪有所回暖。",
+          "url": "https://apnews.com/business"
         },
         {
-          "title": "新车均价逼近5万美元，美国汽车市场消费门槛创历史新高",
-          "summary": "受汽车厂商削减低价车型、转向高利润SUV和皮卡战略影响，美国新车平均售价已接近5万美元，创历史新高，令中低收入消费者"美国汽车梦"愈发难以实现。",
-          "url": "https://apnews.com/business",
-          "source": "AP News"
+          "title": "IMF chief warns that Iran war will slow global economic growth",
+          "summary": "国际货币基金组织总裁警告，伊朗战争将拖累全球经济增长，能源价格冲击波及多国。",
+          "url": "https://apnews.com/business"
         }
       ]
     },
     {
-      "id": "world",
-      "label": "🌍 国际局势",
+      "category": "🌍 国际局势",
       "items": [
         {
-          "title": "美伊在伊斯兰堡举行停火谈判，首轮会谈天亮前结束后短暂中断",
-          "summary": "美伊双方官员在巴基斯坦首都伊斯兰堡进行面对面停火谈判，首轮会谈于当地时间黎明前结束，双方同意短暂休会后继续磋商。这是双方迄今最重要的直接外交接触。",
-          "url": "https://apnews.com/",
-          "source": "AP News"
+          "title": "US Vice President JD Vance says talks with Iran ended after 21 hours without reaching agreement",
+          "summary": "美国副总统万斯表示，美伊第三轮谈判在巴基斯坦进行了21小时后无果而终，双方仍未达成协议。",
+          "url": "https://apnews.com/world-news"
         },
         {
-          "title": "教宗利奥十四世谴责美以战争，称其源于"全能妄想"",
-          "summary": "新任教宗利奥十四世在复活节后的祝福中，罕见点名谴责美以对伊朗的军事行动，称其背后是对"全能妄想"的迷信，呼吁各方立即停火，引发国际社会广泛关注。",
-          "url": "https://apnews.com/",
-          "source": "AP News"
+          "title": "Orthodox Easter truce falters as Ukraine says Russia continues drone strikes",
+          "summary": "俄罗斯宣布东正教复活节停火，但乌克兰称俄方仍在持续发动无人机袭击，停火协议形同虚设。",
+          "url": "https://apnews.com/world-news"
         },
         {
-          "title": "阿耳忒弥斯二号月球飞行任务完美返回，宇航员创人类最远旅行纪录",
-          "summary": "NASA阿耳忒弥斯二号飞船载四名宇航员成功溅落太平洋，圆满完成绕月飞行任务。本次任务刷新人类离地球最远飞行距离纪录，是阿波罗计划后人类首次踏上月球附近轨道。",
-          "url": "https://apnews.com/",
-          "source": "AP News"
+          "title": "UK puts Chagos Islands handover deal on hold after Trump withdraws support",
+          "summary": "特朗普撤回对英国将查戈斯群岛移交毛里求斯协议的支持后，英国宣布暂停该协议推进。",
+          "url": "https://apnews.com/world-news"
         }
       ]
     }
