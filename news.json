@@ -1,26 +1,26 @@
 {
-  "date": "2026-04-11 08:00",
+  "date": "2026-04-12 08:00",
   "categories": [
     {
       "id": "ai",
       "label": "🤖 AI资讯",
       "items": [
         {
-          "title": "Sam Altman回应家门被扔燃烧瓶事件，反思AI与权力",
-          "summary": "OpenAI CEO Sam Altman在博客发文，回应昨日有人向其住所投掷燃烧瓶的事件，并探讨AI发展、AGI控制权分配等议题，强调不应由单一公司掌控AGI。",
+          "title": "OpenAI回应Axios供应链攻击：更新macOS安全证书",
+          "summary": "2026年3月31日，广泛使用的开源库Axios遭供应链攻击，黑客植入恶意脚本。OpenAI确认其macOS应用签名流程受波及，ChatGPT Desktop、Codex等应用的签名证书可能被盗，已紧急发布更新并重新颁发证书。",
           "url": "https://www.theverge.com/ai-artificial-intelligence",
           "source": "The Verge"
         },
         {
-          "title": "Anthropic与Google、Broadcom签署AI算力大单，年化营收突破300亿美元",
-          "summary": "Anthropic宣布与Google和Broadcom签署大规模AI基础设施协议，将获得数吉瓦级下一代TPU算力，预计2027年起上线，同时披露公司年化营收已超30亿美元。",
-          "url": "https://www.theverge.com/2026/4/7/anthropic-google-broadcom-tpu-deal",
+          "title": "Claude Cowork面向企业正式上线：支持IT批量部署与自主工作流",
+          "summary": "Anthropic推出企业级共享AI工作空间Claude Cowork，IT管理员可在整个组织进行批量部署，付费用户可构建自主工作流。新版还支持将Zoom会议转录自动转为行动项目清单。",
+          "url": "https://www.theverge.com/ai-artificial-intelligence",
           "source": "The Verge"
         },
         {
-          "title": "Anthropic发布企业协作AI工作空间Claude Cowork，新增IT管理功能",
-          "summary": "Anthropic推出面向企业的共享AI工作空间Claude Cowork，支持IT管理员批量部署、构建自主工作流，并新增将Zoom会议转录转化为行动项目的功能。",
-          "url": "https://www.theverge.com/2026/4/10/claude-cowork-enterprise-workspace",
+          "title": "Anthropic模型在每个主流操作系统和浏览器中均发现安全漏洞",
+          "summary": "据The Verge报道，Anthropic一款安全审计专项模型经过测试后，在每个主流操作系统（含Windows、macOS、Linux）和主流浏览器中均发现了安全问题，引发业界对AI安全能力的广泛关注。",
+          "url": "https://www.theverge.com/ai-artificial-intelligence",
           "source": "The Verge"
         }
       ]
@@ -30,22 +30,22 @@
       "label": "💰 金融资讯",
       "items": [
         {
-          "title": "特斯拉股价连续八周下跌，年内累计跌幅超20%",
-          "summary": "特斯拉股票延续连续下跌态势，今年以来跌幅已超过20%，投资者对公司缺乏重要新品更新感到担忧，市场信心持续低迷。",
-          "url": "https://finance.yahoo.com/news/tesla-stock-extends-losing-streak-8-weeks",
-          "source": "Yahoo Finance"
+          "title": "伊朗战争推高通胀，美消费者信心大幅下滑",
+          "summary": "伊朗战争导致能源价格飙升，美国通胀压力重燃。最新数据显示美国消费者信心急剧下降，经济学家担忧战争冲击将持续影响美国家庭消费与企业投资。",
+          "url": "https://apnews.com/business",
+          "source": "AP News"
         },
         {
-          "title": "美国3月CPI数据：伊朗战争导致油价飙升",
-          "summary": "美国3月CPI数据显示，伊朗战争引发的能源冲击推动汽油价格大幅上涨，通胀压力重燃，经济学家担忧战争对全球能源市场的持续影响。",
-          "url": "https://finance.yahoo.com/personal-finance/march-cpi-iran-war-gas-prices",
-          "source": "Yahoo Finance"
+          "title": "美伊停火协议提振市场：道指暴涨1300点，油价大幅回落",
+          "summary": "美伊达成两周停火协议后，全球股市出现强劲反弹，道琼斯指数单日上涨逾1300点；同时油价从高位大幅回落至95美元以下，霍尔木兹海峡局势趋于缓和提振能源市场。",
+          "url": "https://apnews.com/business",
+          "source": "AP News"
         },
         {
-          "title": "Anthropic与CoreWeave签署AI算力协议，AI芯片交易持续爆炸式增长",
-          "summary": "Anthropic宣布与云算力公司CoreWeave签署大规模AI基础设施合作协议，CoreWeave股价随即上涨逾10%，反映出市场对AI算力需求持续旺盛的预期。",
-          "url": "https://finance.yahoo.com/news/anthropic-coreweave-ai-infrastructure-deal",
-          "source": "Yahoo Finance"
+          "title": "新车均价逼近5万美元，美国汽车市场消费门槛创历史新高",
+          "summary": "受汽车厂商削减低价车型、转向高利润SUV和皮卡战略影响，美国新车平均售价已接近5万美元，创历史新高，令中低收入消费者"美国汽车梦"愈发难以实现。",
+          "url": "https://apnews.com/business",
+          "source": "AP News"
         }
       ]
     },
@@ -54,21 +54,21 @@
       "label": "🌍 国际局势",
       "items": [
         {
-          "title": "美伊即将在巴基斯坦举行高级别谈判，霍尔木兹海峡局势牵动全球",
-          "summary": "美伊两国代表团将前往巴基斯坦进行高级别谈判，副总统万斯警告伊朗不得\"戏弄\"美方，特朗普则表示霍尔木兹海峡将重新开放，但停火协议仍十分脆弱。",
-          "url": "https://apnews.com/article/us-iran-talks-pakistan-vance-hormuz",
+          "title": "美伊在伊斯兰堡举行停火谈判，首轮会谈天亮前结束后短暂中断",
+          "summary": "美伊双方官员在巴基斯坦首都伊斯兰堡进行面对面停火谈判，首轮会谈于当地时间黎明前结束，双方同意短暂休会后继续磋商。这是双方迄今最重要的直接外交接触。",
+          "url": "https://apnews.com/",
           "source": "AP News"
         },
         {
-          "title": "以色列空袭贝鲁特市中心，造成逾300人死亡；各方惊喜传来谈判消息",
-          "summary": "以色列对黎巴嫩贝鲁特市中心发动空袭，已造成超过300人死亡，救援人员仍在废墟中搜救幸存者，与此同时各方传出谈判启动的消息，局势出现转机。",
-          "url": "https://apnews.com/article/israel-lebanon-beirut-strike-killed-talks",
+          "title": "教宗利奥十四世谴责美以战争，称其源于"全能妄想"",
+          "summary": "新任教宗利奥十四世在复活节后的祝福中，罕见点名谴责美以对伊朗的军事行动，称其背后是对"全能妄想"的迷信，呼吁各方立即停火，引发国际社会广泛关注。",
+          "url": "https://apnews.com/",
           "source": "AP News"
         },
         {
-          "title": "普京宣布东正教复活节期间乌克兰停火",
-          "summary": "俄罗斯总统普京宣布在东正教复活节期间对乌克兰实施停火，但乌方对此持保留态度；与此同时，乌克兰军队在利比亚击落俄罗斯油轮的消息进一步加剧地区紧张态势。",
-          "url": "https://apnews.com/article/russia-putin-ceasefire-ukraine-orthodox-easter",
+          "title": "阿耳忒弥斯二号月球飞行任务完美返回，宇航员创人类最远旅行纪录",
+          "summary": "NASA阿耳忒弥斯二号飞船载四名宇航员成功溅落太平洋，圆满完成绕月飞行任务。本次任务刷新人类离地球最远飞行距离纪录，是阿波罗计划后人类首次踏上月球附近轨道。",
+          "url": "https://apnews.com/",
           "source": "AP News"
         }
       ]
