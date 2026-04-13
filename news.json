@@ -1,72 +1,56 @@
 {
-  "date": "2026-04-13 08:00",
-  "news": [
+  "ts": 1776047065133,
+  "date": "2026-04-13 10:24",
+  "content": "📰 **今日资讯推送**（2026年4月13日）\n\n---\n\n🤖 **AI资讯**（3条）\n1. **OpenAI回应Axios供应链攻击** - OpenAI发布更新和新安全证书，应对黑客通过Axios库漏洞获取macOS版ChatGPT签名证书的安全事件。\n2. **Anthropic发布 Claude Cowork 企业协作功能** - Anthropic推出支持企业级部署的AI协作工作区，集成Zoom会议转录摘要，支持自动化工作流构建与部署。\n3. **ChatGPT推出每月100美元Pro订阅套餐** - OpenAI上线高级Pro订阅计划，同时佛罗里达州启动对OpenAI的调查；法院驳回Anthropic在与特朗普政府AI版权诉讼中的上诉请求。\n\n💰 **金融资讯**（3条）\n1. **伊朗局势推高油价 通胀飙升** - 美国宣布封锁霍尔木兹海峡伊朗港口，油价随即攀升；战争引发美国通胀激增，消费者信心急跌。\n2. **美股震荡 IMF警告全球经济放缓** - IMF警告伊朗战争将拖累全球经济增速；摩根大通CEO戴蒙称战争可能重燃通胀并推迟美联储降息；美国四季度GDP增速下修至0.5%。\n3. **美国新车均价逼近5万美元 学贷或转交财政部** - 新车平均价格接近5万美元，购房者和买家持观望态度；财政部接管违约学生贷款，SAVE计划借款人需准备还款。\n\n🌍 **国际局势**（3条）\n1. **美国宣布封锁伊朗港口 美伊谈判破裂** - 特朗普宣布美国海军即刻封锁霍尔木兹海峡，此前在巴基斯坦举行的美伊停火谈判以失败告终，伊朗外长指责美方破坏谈判。\n2. **匈牙利总理欧尔班选举失败 执政16年后下台** - 欧洲政治地震：匈牙利反对派领导人彼得·马扎尔赢得大选，欧洲各国领导人纷纷祝贺，称这是民主的重大胜利。\n3. **俄乌双方相互指责违反复活节停火协议** - 普京宣布的复活节停火协议几乎立即破裂，乌克兰称俄罗斯持续发动无人机袭击；中国宣布在台湾反对派领导人访问后恢复部分两岸联系。\n\n---\n\n✅ 天气网站资讯数据已更新（news.json 生成成功）",
+  "sections": [
     {
-      "category": "🤖 AI资讯",
+      "title": "🤖 AI资讯",
       "items": [
         {
-          "title": "OpenAI 回应 Axios 供应链攻击，紧急更新 macOS 应用签名证书",
-          "summary": "黑客通过入侵 Axios 库（v1.14.1）植入恶意脚本，波及 ChatGPT Desktop、Codex 等 macOS 应用。OpenAI 已撤销受影响证书并推送新版本，同时公开披露事件细节。",
-          "source": "The Verge",
-          "url": "https://www.theverge.com/ai-artificial-intelligence"
+          "title": "OpenAI回应Axios供应链攻击",
+          "summary": "OpenAI发布更新和新安全证书，应对黑客通过Axios库漏洞获取macOS版ChatGPT签名证书的安全事件，受影响产品包括ChatGPT Desktop、Codex和Atlas。"
         },
         {
-          "title": "Anthropic 上诉失败，将继续被排除在美国国防部合同之外",
-          "summary": "法院驳回 Anthropic 暂停"供应链风险"认定的上诉请求，公司将持续被禁止参与新的五角大楼合同及系统。",
-          "source": "The Verge / AP News",
-          "url": "https://www.theverge.com/ai-artificial-intelligence"
+          "title": "Anthropic发布 Claude Cowork 企业协作功能",
+          "summary": "Anthropic推出支持企业级部署的AI协作工作区，集成Zoom会议转录摘要，支持付费计划用户构建和部署自动化工作流。"
         },
         {
-          "title": "AI 编码大战升温：OpenAI、Google、Anthropic 正在蚕食软件开发领域",
-          "summary": "The Verge 深度报道：三大 AI 巨头在代码生成上展开激烈角逐，Anthropic Claude Cowork 新推企业级部署功能，ChatGPT $100/月 Pro 订阅同步上线，AI 正加速渗透软件工程全流程。",
-          "source": "The Verge",
-          "url": "https://www.theverge.com/ai-artificial-intelligence"
+          "title": "ChatGPT上线每月100美元Pro套餐 法院驳回Anthropic上诉",
+          "summary": "OpenAI推出高级Pro订阅计划；同日佛罗里达州启动对OpenAI调查；联邦上诉法院在最新一轮AI版权诉讼中驳回Anthropic对特朗普政府的上诉。"
         }
       ]
     },
     {
-      "category": "💰 金融资讯",
+      "title": "💰 金融资讯",
       "items": [
         {
-          "title": "油价突破 $100，美伊谈判破裂引发全球能源危机担忧",
-          "summary": "美伊巴基斯坦谈判 21 小时无果后破裂，美国宣布即日起对霍尔木兹海峡实施海军封锁，布伦特原油随即跳涨，欧洲航空业警告或出现航空燃油短缺。",
-          "source": "BBC Business / AP News",
-          "url": "https://www.bbc.com/business"
+          "title": "美国封锁伊朗港口 油价飙升通胀高企",
+          "summary": "美国宣布封锁霍尔木兹海峡，油价在早盘交易中大幅上涨；伊朗战争引发美国通胀飙升，消费者情绪指数骤降，爱尔兰总理宣布削减燃油税以应对民众抗议。"
         },
         {
-          "title": "美国通胀升至近两年最高，油价飙升是主因",
-          "summary": "受伊朗战争导致汽油价格大幅上涨推动，美国通胀率升至 3.3%，为近两年来最高水平，市场密切关注美联储后续利率走向。",
-          "source": "BBC Business",
-          "url": "https://www.bbc.com/business"
+          "title": "IMF警告伊朗战争拖累全球增长 摩根大通示警通胀风险",
+          "summary": "IMF首席警告伊朗战争将减缓全球经济增长；摩根大通CEO戴蒙称战争可能重燃通胀并迫使美联储保持高利率更长时间；美国四季度GDP增速下修至0.5%。"
         },
         {
-          "title": "亚洲争相抢购俄罗斯原油，应对能源价格冲击",
-          "summary": "霍尔木兹危机促使亚洲多国加速转向俄罗斯原油，中国车企出口也因预期 EV 加速普及而大幅增长，全球能源格局加速重塑。",
-          "source": "AP News",
-          "url": "https://apnews.com/world-news"
+          "title": "美国新车均价逼近5万美元 学贷转交财政部",
+          "summary": "新车平均价格接近5万美元令消费者忧虑；财政部将接管违约学生贷款，SAVE计划借款人需准备还款，美联储维持利率不变。"
         }
       ]
     },
     {
-      "category": "🌍 国际局势",
+      "title": "🌍 国际局势",
       "items": [
         {
-          "title": "匈牙利大选震惊欧洲：执政 16 年的奥尔班败选下台",
-          "summary": "反对党领袖 Péter Magyar 赢得匈牙利大选，终结奥尔班 16 年执政。欧洲各国领导人纷纷祝贺，称这是欧洲民主的重大胜利。",
-          "source": "AP News",
-          "url": "https://apnews.com/world-news"
+          "title": "美国宣布封锁伊朗港口 美伊停火谈判破裂",
+          "summary": "特朗普宣布美国海军即刻封锁霍尔木兹海峡，此前在巴基斯坦举行的美伊停火谈判以失败告终，伊朗外长指责美方蓄意破坏谈判，局势急剧升温。"
         },
         {
-          "title": "美伊停火后俄乌战场：双方互指对方违反普京复活节停火承诺",
-          "summary": "普京宣布的复活节停火快速破裂，乌克兰指俄罗斯持续发动无人机袭击，泽连斯基表示乌军在伊朗战争期间协助击落了多架 Shahed 无人机。",
-          "source": "AP News",
-          "url": "https://apnews.com/world-news"
+          "title": "匈牙利欧尔班执政16年后败选 欧洲政局震动",
+          "summary": "匈牙利反对派领导人彼得·马扎尔赢得大选，强人总理欧尔班16年执政宣告终结，欧洲各国领导人纷纷祝贺，称其为民主的历史性胜利。"
         },
         {
-          "title": "美国宣布封锁霍尔木兹海峡，中东紧张局势急剧升级",
-          "summary": "特朗普宣布美国海军将立即开始封锁进出霍尔木兹海峡的船只，同时伊朗代表团抵达巴基斯坦参与后续外交斡旋，局势仍高度不确定。",
-          "source": "AP News",
-          "url": "https://apnews.com/world-news"
+          "title": "俄乌复活节停火几乎即刻破裂 中国恢复部分两岸联系",
+          "summary": "俄乌双方相互指责违反普京宣布的复活节停火，乌克兰称俄罗斯持续发动无人机袭击；与此同时，中国宣布在台湾反对派领导人访问后恢复部分两岸交流渠道。"
         }
       ]
     }
